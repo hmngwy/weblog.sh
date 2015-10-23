@@ -12,9 +12,9 @@
       padding: 0 1ch;
       margin: 0;
     }
-    section {
+    section, footer {
       width: 100%;
-      max-width: 60ch;
+      max-width: 55ch;
       margin: auto;
     }
     h1 {
@@ -91,6 +91,10 @@
     }
     #support p {
       margin-top: 0;
+    }
+    footer a {
+      color: grey;
+      background-image: linear-gradient(to bottom,grey 75%,grey 75%);
     }
     @media screen and (min-width:1024px) {
       body {
@@ -201,32 +205,10 @@
           <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
         </header>
         <p>An antithesis to all the blogging platforms that overstate their "simplicity".</p>
-
       </div>
     </section>
 
-<script>
-function runScroll(sel) {
-  scrollTo(document.body, getOffset(document.querySelector(sel)), 300);
-}
+    <footer><a href="/~postmaster" style="border:0">BLOG</a></footer>
 
-function scrollTo(element, to, duration) {
-  if (duration <= 0) return;
-  var difference = to - element.scrollTop;
-  var perTick = difference / duration * 10;
-
-  setTimeout(function() {
-    element.scrollTop = element.scrollTop + perTick;
-    if (element.scrollTop === to) return;
-    scrollTo(element, to, duration - 10);
-  }, 10);
-}
-function getOffset(element) {
-  var bodyRect = document.body.getBoundingClientRect(),
-  elemRect = element.getBoundingClientRect(),
-  offset   = elemRect.top - bodyRect.top;
-  return offset;
-}
-</script>
   </body>
 </html>
