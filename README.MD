@@ -1,5 +1,5 @@
 # weblog.sh
-__Blog from the Command Line https://weblog.sh/__
+__Blog from the Command Line — https://weblog.sh/__
 
 [https://weblog.sh](https://weblog.sh) is a hosted blogging service that lets you blog from the command line, it provides the server hosting for the pages, and the CLI client to create content.
 
@@ -23,9 +23,29 @@ All interaction with your blog is through this client, from registration, throug
 
 When you start or edit an article, the client will use your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
 
+## About the source code
+
+Basically each client version will activate a corresponding a lib script that contains all the commands available for that version, the client version corresponds to the script name.
+
+Only the schemas are consistent across versions, but there is interest in keeping the article processing the same, i.e. extremely minimal.
+
+The server does not use REST in the interest of brevity.
+
+Other than that, it's mostly a basic Mongo+Express web app.
+
+### Contributing
+
+- Pick up one of the to-do items below and send me a pull request
+- Report bugs using [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
+  - Also welcome: suggestions, opinion, open discussions
+- Support through ♥︎Gratipay (Soon)
+
+### Getting in touch
+- postmaster at weblog•sh
+
 ### DO THIS
 
-- Add a TOS and PP pages
+- Add a TOS and PP pages, loosely base on WP
 - Add **About** page
   - Discuss how the client works
   - Discuss need to knows, like certs from startssl and basic token based auth
