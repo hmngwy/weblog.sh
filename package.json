@@ -1,0 +1,23 @@
+{
+  "name": "weblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cli-table2": "^0.1.9",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "feed": "^0.2.6",
+    "md5": "^2.0.0",
+    "mongoose": "^4.1.12",
+    "mongoose-url-slugs": "^0.1.4",
+    "ratelimit.js": "^1.7.0",
+    "shortid": "^2.2.4"
+  }
+}
