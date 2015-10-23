@@ -6,5 +6,6 @@ module.exports = {
   mongourl: process.env.MONGO_URL || 'mongodb://localhost/weblogsh',
   endpointurl: process.env.ENDPOINT || 'http://localhost:3000/endpoint',
   latest: process.env.LATESTCLIENT || 'blog-0.1.1',
-  downloadpath: process.env.DOWNLOADPATH || '/d'
+  downloadpath: process.env.DOWNLOADPATH || '/d',
+  md5: process.env.MD5 || 'XXXXXXXXXXXXXXXX'
 }
