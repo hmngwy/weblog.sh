@@ -7,7 +7,7 @@ This repository — weblog.sh — contains the source code for the site.
 
 The aim of the site is to provide a polar opposite of rich interface blogging platforms while still allowing for the core blogging functionalities. The hosting service is provided to reduce the need for the user to build and host their own sites.
 
-## About the hosting service https://weblog.sh
+### About the hosting service <<https://weblog.sh>>
 
 The features are minimal. You get a home page, which shows an index of all your posts, and a page for each article.
 
@@ -17,39 +17,39 @@ An Atom feed is also provided.
 
 Users are anonymous, no information is explicitly requested other than the preferred username.
 
-## About the blogging client
+### About the blogging client
 
 All interaction with your blog is through this client, from registration, through article publishing, to article deletion, the site's homepage outlines all the commands.
 
-When you start or edit an article, the client will use your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
+When you start or edit an article, the client will launch your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
 
-## About the source code
+### About the source code
 
-Basically each client version will activate a corresponding a lib script that contains all the commands available for that version, the client version corresponds to the script name.
+Basically each client version will activate a corresponding lib script that contains all the commands available for that version, the client version corresponds to the script name. The command definitions are exclusive to each version but there is interest to keep it consistent with future versions.
 
-Only the schemas are consistent across versions, but there is interest in keeping the article processing the same, i.e. extremely minimal.
+Only the schemas are permanently consistent across versions.
 
 The server does not use REST in the interest of brevity.
 
 Other than that, it's mostly a basic Mongo+Express web app.
 
-### Contributing
+## Contributing
 
 - Pick up one of the to-do items below and send me a pull request
 - Report bugs using [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
   - Also welcome: suggestions, opinion, open discussions
 - Support through ♥︎Gratipay (Soon)
 
-### Getting in touch
-- postmaster at weblog•sh
-
 ### DO THIS
 
-- Add a TOS and PP pages, loosely base on WP
+- Add a **TOS** and **PP** pages, loosely base on WP
 - Add **About** page
   - Discuss how the client works
   - Discuss need to knows, like certs from startssl and basic token based auth
   - Cookie notice
+  - Contact information
+  - Policies and Disclaimers
+- Move the #About sections in README to wiki and link to it
 - Add GPL notice to client on registration
 - Add TOS and PP to client
 - Redis page caching
@@ -58,6 +58,8 @@ Other than that, it's mostly a basic Mongo+Express web app.
 - Look into better authentication systems for CLI programs
 - Custom domain support
 
+## Getting in touch
+postmaster at weblog•sh
 
 ### LEGAL
 
