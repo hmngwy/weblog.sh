@@ -40,6 +40,8 @@ Other than that, it's mostly a basic Mongo+Express web app.
   - Also welcome: suggestions, opinion, open discussions
 - Support through ♥︎Gratipay (Soon)
 
+I am figuring out the policies needed to allow people in as Repo Contributors. I will disclose that soon.
+
 ### DO THIS
 
 - Add a **TOS** and **PP** pages, loosely base on WP
