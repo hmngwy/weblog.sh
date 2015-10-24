@@ -200,6 +200,15 @@ app.get('/terms', function (req, res, next) {
 
 });
 
+app.get('/privacy', function (req, res, next) {
+
+  res.render('terms', {
+    layout: 'main',
+    latest: constants.latest,
+    constants: constants});
+
+});
+
 app.get('*', function(req, res){
   res.status(404);
   res.render('error', {message: 'NOT FOUND', layout: false});
