@@ -202,7 +202,7 @@ app.get('/terms', function (req, res, next) {
 
 app.get('/privacy', function (req, res, next) {
 
-  res.render('terms', {
+  res.render('privacy', {
     layout: 'main',
     latest: constants.latest,
     constants: constants});
@@ -213,8 +213,6 @@ app.get('*', function(req, res){
   res.status(404);
   res.render('error', {message: 'NOT FOUND', layout: false});
 });
-
-
 
 var server = app.listen(constants.port, function () {
   var host = server.address().address;
