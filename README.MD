@@ -1,19 +1,17 @@
 # weblog.sh
 __Blog from the Command Line — https://weblog.sh/__
 
-[https://weblog.sh](https://weblog.sh) is a hosted blogging service that lets you blog from the command line, it provides the server hosting for the pages, and the CLI client to create content.
+[https://weblog.sh](https://weblog.sh) is a hosted blogging service that lets you blog from the command line and in plain text only, it provides the server hosting for the pages, and the CLI client to create content.
 
-This repository — weblog.sh — contains the source code for the site.
+This project repository — weblog.sh — contains the source code for the site.
 
-The aim of the site is to provide a polar opposite of rich interface blogging platforms while still allowing for the core blogging functionalities. The hosting service is provided to reduce the need for the user to build and host their own sites.
+The service aims to reduce the blogging workflow and presentation to its minimum, employing only core blog features. Basically trying to get as close to "text files in a folder" but not leaving the "published online" domain. An antithesis to rich blogging platforms.
 
 ### About the hosting service <<https://weblog.sh>>
 
-The features are minimal. You get a home page, which shows an index of all your posts, and a page for each article.
+The features are minimal. You get a home page, which shows an index of all your posts, and a page for each article. An Atom feed is also provided, articles are syndicated in full.
 
 As for personalization, you have one setting, and only once - your username.
-
-An Atom feed is also provided.
 
 Users are anonymous, no information is explicitly requested other than the preferred username.
 
