@@ -25,7 +25,7 @@ app.use(bodyParser.text());
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
-// app.enable('view cache');
+app.enable('view cache');
 
 app.use('/endpoint', function (req, res, next) {
   if(req.headers['x-token'] !== undefined) {
