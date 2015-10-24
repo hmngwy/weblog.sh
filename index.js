@@ -184,7 +184,10 @@ app.get(constants.downloadpath, function (req, res, next) {
 
 app.get('/', function (req, res, next) {
 
-  res.render('home', {layout: false, latest: constants.latest, downloadPath: constants.downloadpath, constants: constants});
+  res.render('home', {
+    layout: false,
+    latest: constants.latest,
+    constants: constants});
 
 });
 
