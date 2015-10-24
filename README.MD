@@ -19,7 +19,7 @@ Users are anonymous, no information is explicitly requested other than the prefe
 
 All interaction with your blog is through this client, from registration, through article publishing, to article deletion, the site's homepage outlines all the commands.
 
-When you start or edit an article, the client will launch your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
+When you start or edit an article the client will launch your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
 
 ### About the source code
 
@@ -29,7 +29,7 @@ Only the schemas are permanently consistent across versions.
 
 The server does not use REST in the interest of brevity.
 
-Other than that, it's mostly a basic Mongo+Express web app.
+Other than that, it's mostly a basic Express web app.
 
 ## Contributing
 
@@ -38,7 +38,7 @@ Other than that, it's mostly a basic Mongo+Express web app.
   - Also welcome: suggestions, opinion, open discussions
 - Support through ♥︎Gratipay (Soon)
 
-I am figuring out the policies needed to allow people in as Repo Contributors. I will disclose that soon.
+I am figuring out the policies needed to allow people in as Repo Contributors, I will disclose that when I figure it out. But for now you should be able to send pull requests for anything and I will acknowledge them.
 
 ### DO THIS
 
@@ -53,7 +53,7 @@ I am figuring out the policies needed to allow people in as Repo Contributors. I
 - Add GPL notice to client on registration
 - Add TOS and PP to client
 - Redis page caching
-  - exclude client download page, invalidate user-specific cache on update
+  - Exclude client download page, invalidate user-specific cache on update
 - Simplify post status update function (publish, unpublish, delete)
 - Look into better authentication systems for CLI programs
 - Custom domain support
