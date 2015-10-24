@@ -5,6 +5,8 @@ var schemas = require('./lib/schemas');
 var constants = require('./constants');
 var ratelimit = require('ratelimit.js');
 
+var cache = require('./lib/cache');
+
 var exphbs  = require('express-handlebars');
 var hbs = exphbs.create({
   defaultLayout: 'user',
@@ -57,7 +59,6 @@ app.use(['/~:username', '/~:username*'], function (req, res, next) {
 
 });
 
-
 app.use(function(err, req, res, next) {
   console.log(err.stack);
   if (res.headersSent) {
@@ -88,7 +89,7 @@ app.post('/endpoint', function (req, res, next) {
 });
 
 
-app.get('/~:username/*-:id', function (req, res, next) {
+app.get('/~:username/*-:id', cache.route(), function (req, res, next) {
 
   Article
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
@@ -108,7 +109,7 @@ app.get('/~:username/*-:id', function (req, res, next) {
 });
 
 
-app.get('/~:username/feed', function (req, res, next) {
+app.get('/~:username/feed', cache.route(), function (req, res, next) {
 
   var Feed = require('feed');
   var feed = new Feed({
@@ -150,7 +151,7 @@ app.get('/~:username/feed', function (req, res, next) {
 
 });
 
-app.get('/~:username', function (req, res, next) {
+app.get('/~:username', cache.route(), function (req, res, next) {
 
   Article
   .find({author: req.user._id, status: 'published'})
@@ -182,7 +183,7 @@ app.get(constants.downloadpath, function (req, res, next) {
 
 });
 
-app.get('/', function (req, res, next) {
+app.get('/', cache.route(), function (req, res, next) {
 
   res.render('home', {
     layout: 'main',
@@ -191,7 +192,7 @@ app.get('/', function (req, res, next) {
 
 });
 
-app.get('/terms', function (req, res, next) {
+app.get('/terms', cache.route(), function (req, res, next) {
 
   res.render('terms', {
     layout: 'main',
@@ -200,7 +201,7 @@ app.get('/terms', function (req, res, next) {
 
 });
 
-app.get('/privacy', function (req, res, next) {
+app.get('/privacy', cache.route(), function (req, res, next) {
 
   res.render('privacy', {
     layout: 'main',

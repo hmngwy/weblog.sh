@@ -51,8 +51,6 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 - Move the #About sections in README to wiki and link to it
 - Add GPL notice to client on registration
 - Add TOS and PP to client
-- Redis page caching
-  - Exclude client download page, invalidate user-specific cache on update
 - Simplify post status update function (publish, unpublish, delete)
 - Look into better authentication systems for CLI programs
 - Custom domain support
