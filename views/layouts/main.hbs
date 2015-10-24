@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{constants.brand}} - blogging from the command line</title>
+    <meta charset="utf-8" />
+    <link href="data:image/gif;base64,R0lGODdhAQABAPAAAAAAAAAAACH/C1hNUCBEYXRhWE1QAz94cAAsAAAAAAEAAQBAAgJEAQA7" rel="icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
+    <style>
+    body {
+      font: 16px/1.5em 'Roboto Mono', Monaco, "Courier New", Courier, monospace;
+      padding: 0 1ch;
+      margin: 0;
+    }
+    section, footer {
+      width: 100%;
+      max-width: 55ch;
+      margin: auto;
+    }
+    h1 {
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 0;
+    }
+    #lead h1 {
+      margin-top: 3ch;
+    }
+    a {
+      color: blue;
+      background-image: linear-gradient(to bottom,blue 75%,blue 75%);
+      text-shadow: -1px -1px 0 white,1px -1px 0 white,-1px 1px 0 white,1px 1px 0 white;
+      background-repeat: repeat-x;
+      background-size: 1px 1px;
+      background-position: 0 99.9%;
+      text-decoration: none;
+    }
+    article header {
+      margin-bottom: 2ch;
+      padding: 0;
+    }
+    .prompt {
+      color: lightgrey;
+    }
+    .prompt:after {
+      content: '$ ';
+    }
+    .comment {
+      color: grey;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .output {
+      color: lightgrey;
+    }
+    hr {
+      border: 0;
+      border-bottom: 4px solid #EEE;
+      margin: 4ch 0;
+    }
+    section {
+      position: relative;
+      padding: 2ch;
+      display: table;
+    }
+    section:first-of-type:after {
+      font-size: 1.5em;
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 1em;
+      right: 50%;
+      color: #999;
+    }
+    .cell {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .name a {
+      background-image: none;
+      text-shadow: none;
+      background-color: #333;
+      color: #EEE;
+      padding: 1ch;
+      border: 0;
+    }
+    .contrast {
+      background-color: #F5F5F5;
+    }
+    .contrast a {
+      text-shadow: -1px -1px 0 #F5F5F5,1px -1px 0 #F5F5F5,-1px 1px 0 #F5F5F5,1px 1px 0 #F5F5F5;
+    }
+    #support p {
+      margin-top: 0;
+    }
+    footer a {
+      color: grey;
+      background-image: linear-gradient(to bottom,grey 75%,grey 75%);
+    }
+    pre {
+      font-family: inherit;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+    @media screen and (min-width:1024px) {
+      body {
+        font: 20px/1.75em 'Roboto Mono';
+      }
+    }
+    </style>
+  </head>
+  <body>
+
+    <section id="lead">
+      <div class="cell">
+        <header>
+          <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
+          <h1>BLOG FROM THE COMMAND LINE, IN PLAIN TEXT</h1>
+        </header>
+        <p>
+          Simple and <a href="https://www.eff.org/issues/anonymity">anonymous</a>.
+        </p>
+      </div>
+    </section>
+
+    {{{body}}}
+
+    <footer><a href="/~postmaster" style="border:0">BLOG</a></footer>
+
+  </body>
+</html>

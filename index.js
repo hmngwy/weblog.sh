@@ -185,7 +185,16 @@ app.get(constants.downloadpath, function (req, res, next) {
 app.get('/', function (req, res, next) {
 
   res.render('home', {
-    layout: false,
+    layout: 'main',
+    latest: constants.latest,
+    constants: constants});
+
+});
+
+app.get('/terms', function (req, res, next) {
+
+  res.render('terms', {
+    layout: 'main',
     latest: constants.latest,
     constants: constants});
 
