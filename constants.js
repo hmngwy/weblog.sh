@@ -1,6 +1,6 @@
 module.exports = {
   brand: 'weblog.sh',
-  hostname: process.env.HOSTNAME || 'localhost:3000',
+  hostname: process.env.HOSTNAME || 'localhost',
   protocol: process.env.PROTOCOL || 'http',
   port: process.env.PORT || 3000,
   mongourl: process.env.MONGO_URL || 'mongodb://localhost/weblogsh',
