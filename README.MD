@@ -1,13 +1,21 @@
 # weblog.sh
 __Blog from the Command Line — https://weblog.sh/__
 
-[https://weblog.sh](https://weblog.sh) is a hosted blogging service that lets you blog from the command line and in plain text only, it provides the server hosting for the pages, and the CLI client to create content.
+[https://weblog.sh](https://weblog.sh) is a blogging platform boiled down to its core. The only features are to save a draft, and to publish it.
+
+The post format is plain text<sup>1</sup>, your first line is the title. It launches your EDITOR to write posts.
+
+It serves posts under your [~username](https://weblog.sh/~postmaster), which is the only thing it knows about you.
+
+1: [link format https://weblog.sh], this is the web after all
+
+---
 
 This project repository — weblog.sh — contains the source code for the site.
 
 The service aims to reduce the blogging workflow and presentation to its minimum, employing only core blog features. Basically trying to get as close to "text files in a folder" but not leaving the "published online" domain. An antithesis to rich blogging platforms.
 
-### About the hosting service <<https://weblog.sh>>
+### About the platform
 
 The features are minimal. You get a home page, which shows an index of all your posts, and a page for each article. An Atom feed is also provided, articles are syndicated in full.
 
@@ -15,7 +23,13 @@ As for personalization, you have one setting, and only once - your username.
 
 Users are anonymous, no information is explicitly requested other than the preferred username.
 
-### About the blogging client
+No password recovery system is in place, or ever will be. If an account is lost, or compromised, it is likely to stay that way forever.
+
+The system is designed to have as little personally identifying information as possible (afaik IPs in logs), in the case of a leak data exposed will only slightly be better than what's already publicly available on the platform.
+
+Passwords are stored after a one-way encryption.
+
+### About the CLI tool
 
 All interaction with your blog is through this client, from registration, through article publishing, to article deletion, the site's homepage outlines all the commands.
 
@@ -23,7 +37,7 @@ When you start or edit an article the client will launch your $EDITOR, if you ha
 
 ### About the source code
 
-Basically each client version will activate a corresponding lib script that contains all the commands available for that version, the client version corresponds to the script name. The command definitions are exclusive to each version but there is interest to keep it consistent with future versions.
+Basically each client version will activate a corresponding endpoint library of commands available for that version, the client corresponds to a library by its semver minor version. The command definitions are exclusive to each version but there is interest to keep it consistent with future versions.
 
 Only the schemas are permanently consistent across versions.
 
@@ -51,12 +65,12 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
   - Cookie notice
   - Contact information
   - Policies and Disclaimers
-- Invalidate cache when slug changes (i.e. implicilty deleted post)
+- Invalidate cache when slug changes (i.e. implicitly deleted post)
 - "Since" based pagination
 - Add GPL notice to client on registration
 - Add TOS and PP to client
-- Simplify post status update function (publish, unpublish, delete)
 - Custom domain support
+- Password update functionality
 
 - Move the #About sections in README to wiki and link to it
 - Look into better authentication systems for CLI programs
