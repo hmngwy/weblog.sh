@@ -12,11 +12,15 @@
       padding: 0 1ch;
       margin: 0;
     }
-    section, footer {
+    section, footer, .preview_wrap {
       width: 100%;
       max-width: 55ch;
       margin: auto;
     }
+     .preview_wrap {
+       max-width: 59ch;
+       margin-bottom: 2ch;
+     }
     h1 {
       font-size: 1em;
       font-weight: 700;
@@ -61,15 +65,7 @@
       position: relative;
       padding: 2ch;
       display: table;
-    }
-    section:first-of-type:after {
-      font-size: 1.5em;
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 1em;
-      right: 50%;
-      color: #999;
+      box-sizing: border-box;
     }
     .cell {
       display: table-cell;
@@ -105,9 +101,30 @@
       max-width: 100%;
       white-space: pre-wrap;
     }
+    iframe {
+      box-sizing:border-box;
+      width: 100%;
+      border: 5px solid #EEE;
+      height: 250px;
+    }
+    @media screen and (min-width:60ch) {
+      iframe {
+        width: 50%;
+      }
+      iframe + iframe {
+        border-left: 0;
+      }
+    }
     @media screen and (min-width:1367px) {
       body {
         font: 20px/1.75em 'Roboto Mono';
+      }
+
+      iframe {
+        width: 50%;
+      }
+      iframe + iframe {
+        border-left: 0;
       }
     }
     </style>
