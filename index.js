@@ -239,7 +239,7 @@ app.get('*', function(req, res){
   res.render('error', {message: 'NOT FOUND', layout: false});
 });
 
-var server = app.listen(constants.port, constants.hostname, function () {
+var server = app.listen(constants.port, function () {
   var host = server.address().address;
   var port = server.address().port;
 
