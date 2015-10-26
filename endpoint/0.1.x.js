@@ -1,8 +1,8 @@
 var md5 = require('md5');
 var mongoose = require('mongoose');
-var schemas = require('./schemas');
+var schemas = require('../lib/schemas');
+var cache = require('../lib/cache');
 var constants = require('../constants');
-var cache = require('./cache');
 
 var Article = mongoose.model('Article', schemas.article);
 var User = mongoose.model('User', schemas.user);
@@ -18,7 +18,6 @@ var linkReplacer = function(match, full, text, url, string){
 }
 
 module.exports = {
-  ver: '0.1.1',
 
   register: function(req, res, next, opts) {
 

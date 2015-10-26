@@ -76,44 +76,41 @@ app.post('/endpoint', function (req, res, next) {
   var clientVersion = req.headers['user-agent'].replace('/', 'X'); //sanitize ver
   var clientSemver = clientVersion.match(/.*-(.*)$/)[1];
 
-  var endpoint;
+  var endpoint = null;
 
   fs.readdir('./endpoint', function(err, items) {
     for (var i=0; i<items.length; i++) {
       var endpointSemver = items[i].match(/(.*)\.js$/)[1];
 
       if (semver.satisfies(clientSemver, endpointSemver)) {
-        try {
-          endpoint = require('./endpoint'+endpointSemver);
-          break;
-        } catch (err) {
-          res.send('BAD^^^Your version is not supported. If you think this is in error contact postmaster@weblog.sh');
-          next();
-        }
+        console.log(clientSemver, endpointSemver);
+        endpoint = require('./endpoint/'+endpointSemver+'.js');
+        break;
+      }
+    }
 
+    if (endpoint == null) {
+      res.send('BAD^^^Your version is not supported.');
+      next();
+    } else {
+
+      if (endpoint[req.headers['x-action']] == undefined) {
+        res.send('BAD^^^Command not found.');
+        next();
       }
 
-    }
-  });
+      endpoint[req.headers['x-action']](req, res, next, {
+        callback: function(req, res, next, opts){
+          next();
+        }
+      });
 
-  if (endpoint[req.headers['x-action']] == undefined) {
-    res.send('BAD^^^Command not found.');
-    next();
-  }
-
-  console.log(req.headers['x-action']);
-  endpoint[req.headers['x-action']](req, res, next, {
-    callback: function(req, res, next, opts){
-      next();
     }
-  });
+
+
+  }); // readdir
 
 });
-
-//0.0.9 0.1.0
-//0.1.1
-//0.1.5
-//0.2.1
 
 
 app.get('/~:username/*-:id', cache.route(), function (req, res, next) {
