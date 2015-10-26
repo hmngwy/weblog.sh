@@ -27,7 +27,8 @@ app.use(function(req, res, next){
 
   if (req.hostname !== constants.hostname) {
     res.header("Content-Type", "text/plain");
-    res.send('no');
+    res.sendStatus(404);
+    res.send('(ﾉ´ヮ´)ﾉ*:･ﾟ✧');
     res.end();
   } else {
     next();
