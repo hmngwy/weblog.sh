@@ -4,6 +4,7 @@
     <p><a class="download" href="{{constants.downloadpath}}">Download Client ({{latest}})</a></p>
     <span class="comment"># OR DOWNLOAD AND INSTALL ALIAS IN CLI</span><br>
     <span class="prompt"></span>curl -# {{constants.protocol}}://{{constants.host}}{{constants.downloadpath}} > ~/weblog.sh<br>
+    <span class="prompt"></span>chmod +x ~/.bashrc<br>
     <span class="prompt"></span>echo "alias weblog=~/./weblog.sh" >> ~/.bashrc<br>
     <span class="prompt"></span>blog help
     <hr>
