@@ -1,6 +1,6 @@
 #!/bin/sh
 
-readonly VER="blog-0.2.2"
+readonly VER="blog-0.2.3"
 
 readonly BRAND="{{BRAND}}"
 readonly ENDPOINT="{{ENDPOINT}}"
@@ -80,6 +80,41 @@ function sub_login() {
 
   # check login
   _sendNoAuth "login" "$username|$password"
+
+  # save output to ~/.weblog/token
+
+  # save output to ~/.weblog/token if OK
+  status=${output%^^^*}
+  tokencontent=${output##*^^^}
+
+  echo ""
+
+  case $status in
+    "OK")
+      content=${tokencontent%---*}
+      token=${tokencontent##*---}
+      echo "$content"
+      echo "$token" > $TOKEN
+      ;;
+    "BAD")
+      echo "$tokencontent"
+      ;;
+    *)
+      echo "An unknown error has occured, maybe try again?"
+      ;;
+  esac
+
+}
+
+
+function sub_password() {
+
+  # ask for password
+  printf "New password: "
+  read -s password;
+
+  # check login
+  _send "password" "$password"
 
   # save output to ~/.weblog/token
 
@@ -381,6 +416,8 @@ sub_help(){
   echo "    continue                  Continue writing latest draft"
   echo "    recover                   Loads last edit into workspace"
   echo "                              Use when save fails"
+  echo "    password                  Change account password"
+  echo "                              Must be logged in"
   echo ""
 }
 

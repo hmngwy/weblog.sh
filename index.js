@@ -46,8 +46,10 @@ app.use('/endpoint', function (req, res, next) {
 
       if (user) {
         req.user = user;
+        next();
+      } else {
+        res.status(401).send('BAD^^^Invalid token.');
       }
-      next();
     });
   } else {
     next();

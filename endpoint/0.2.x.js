@@ -1,4 +1,4 @@
-var md5 = require('md5');
+
 var mongoose = require('mongoose');
 var schemas = require('../lib/schemas');
 var cache = require('../lib/cache');
@@ -21,12 +21,13 @@ module.exports = {
 
   register: function(req, res, next, opts) {
 
+    var hash = require('sha256');
     var payload = req.body.split('|');
     var salt = schemas.randomString(32);
 
     var user = new User({
       username: payload[0].trim(),
-      hash: md5(payload[1] + salt),
+      hash: hash(payload[1] + salt),
       salt: salt
     });
     user.save(function (err, user) {
@@ -49,14 +50,45 @@ module.exports = {
 
   },
 
+  password: function(req, res, next, opts) {
+
+    var hash = require('sha256');
+    var payload = req.body;
+    var salt = schemas.randomString(32);
+
+    req.user.hash = hash(payload + salt);
+    req.user.salt = salt;
+    req.user.token = schemas.randomString(64);
+
+    req.user.save(function(err, saved){
+      if(err){
+        res.send('BAD^^^Password update failed.');
+        opts.callback(req, res, next);
+      }
+
+      var response = [""];
+      response.push("\033[1A\r");
+      response.push("\033[K[" + saved.username + "] → password updated: "+constants.protocol+'://'+constants.host+"/~"+saved.username);
+      response.push("\033[K");
+      response.push("---");
+      response.push(saved.token);
+
+      res.send('OK^^^'+response.join(""));
+      opts.callback(req, res, next);
+
+    });
+
+  },
+
   login: function(req, res, next, opts) {
 
+    var hash = require('sha256');
     var payload = req.body.split('|');
 
     User.findOne({username:payload[0]}, function (err, user) {
       if (err) console.log('Error: ', err);
 
-      if (user && user.hash == md5(payload[1] + user.salt)) {
+      if (user && user.hash == hash(payload[1] + user.salt)) {
         user.token = schemas.randomString(64);
         user.save();
 
