@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{constants.brand}} - blogging from the command line</title>
+    <title>{{constants.brand}} - blogging from the command-line</title>
     <meta charset="utf-8" />
+
     <link href="data:image/gif;base64,R0lGODlhEAAQAPABAA0NDf///yH/C1hNUCBEYXRhWE1QAz94cAAh+QQFAAABACwAAAAAEAAQAAACF4SPqcvtn0KARlJgaYb7dfc14UWW5lEAADs=" rel="icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
@@ -21,7 +22,7 @@
        max-width: 59ch;
        margin-bottom: 2ch;
      }
-    h1 {
+    h1, h2 {
       font-size: 1em;
       font-weight: 700;
       margin-top: 0;
@@ -107,6 +108,9 @@
       border: 5px solid #EEE;
       height: 250px;
     }
+    sup {
+      line-height: 0;
+    }
     @media screen and (min-width:74ch) {
       iframe {
         width: 50%;
@@ -128,8 +132,11 @@
       <div class="cell">
         <header>
           <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
-          <h1>BLOG FROM THE COMMAND LINE, IN PLAIN TEXT</h1>
+          <h1>BLOGGING FROM THE COMMAND-LINE</h1>
         </header>
+        <p>This is a lean blogging platform boiled down to its core. The only features are to save a draft<sup>1</sup>, and to publish<sup>2</sup> it.</p>
+        <p>The post format is plain text, your first line is the title.</p>
+        <p>It serves posts under your <a href="/~postmaster" target="_blank">~username</a>, which is the only thing it knows about you.</p>
         <p>
           Simple and <a href="https://www.eff.org/issues/anonymity">anonymous</a>.
         </p>
