@@ -33,7 +33,10 @@ Other than that, it's mostly a basic Express web app.
 
 ## Contributing
 
-- Pick up one of the to-do items below and send me a pull request
+- Pick up any of the to-do items below and send me a pull request
+- Take up any of the issues reported in [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
+  - Answer user questions, issues arising with usage
+  - Or look into the detail, and maybe fix reported bugs
 - Report bugs using [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
   - Also welcome: suggestions, opinion, open discussions
 - Support through ♥︎Gratipay (Soon)
