@@ -23,6 +23,18 @@ var Article = mongoose.model('Article', schemas.article);
 var app = express();
 app.use(bodyParser.text());
 
+app.use(function(req, res, next){
+
+  if (req.hostname === constants.hostname) {
+    res.header("Content-Type", "text/no");
+    res.send('no');
+    res.end();
+  } else {
+    next();
+  }
+
+});
+
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 if (process.env.NODE_ENV != "development") app.enable('view cache');
@@ -138,12 +150,12 @@ app.get('/~:username/feed', cache.route(), function (req, res, next) {
   var Feed = require('feed');
   var feed = new Feed({
     title:          '~'+req.user.username,
-    link:           constants.protocol+'://'+constants.hostname+'/~'+req.user.username,
+    link:           constants.protocol+'://'+constants.host+'/~'+req.user.username,
     copyright:      'All Rights Reserved '+(new Date().getFullYear())+', '+req.user.username,
 
     author: {
       title:          '~'+req.user.username,
-      link:           constants.protocol+'://'+constants.hostname+'/~'+req.user.username
+      link:           constants.protocol+'://'+constants.host+'/~'+req.user.username
     }
   });
 
@@ -157,11 +169,11 @@ app.get('/~:username/feed', cache.route(), function (req, res, next) {
     for (var key in posts) {
       feed.item({
         title:          posts[key].title,
-        link:           constants.protocol+'://'+constants.hostname+'/~'+req.user.username+'/'+posts[key].slug+'-'+posts[key]._id,
+        link:           constants.protocol+'://'+constants.host+'/~'+req.user.username+'/'+posts[key].slug+'-'+posts[key]._id,
         description: posts[key].content,
         author: [{
           title:          '~'+req.user.username,
-          link:           constants.protocol+'://'+constants.hostname+'/~'+req.user.username
+          link:           constants.protocol+'://'+constants.host+'/~'+req.user.username
         }],
         date:           posts[key].published_ts,
       });

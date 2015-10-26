@@ -34,7 +34,7 @@ module.exports = {
       if (user) {
         var response = [""];
         response.push("\033[1A\r");
-        response.push("\033[K[" + user.username + "] → registered: "+constants.protocol+'://'+constants.hostname+"/~"+user.username);
+        response.push("\033[K[" + user.username + "] → registered: "+constants.protocol+'://'+constants.host+"/~"+user.username);
         response.push("\033[K");
         response.push("---");
         response.push(user.token);
@@ -62,7 +62,7 @@ module.exports = {
 
         var response = [""];
         response.push("\033[1A\r");
-        response.push("\033[K[" + user.username + "] → login: "+constants.protocol+'://'+constants.hostname+"/~"+user.username);
+        response.push("\033[K[" + user.username + "] → login: "+constants.protocol+'://'+constants.host+"/~"+user.username);
         response.push("\033[K");
         response.push("---");
         response.push(user.token);
@@ -282,7 +282,7 @@ module.exports = {
         response.push("\033[3A\r");
         response.push("\033[K");
         response.push("\033[K[" + req.user.username + "] → status - "+article.status+": "+article.title+ " ("+article.num+")");
-        response.push("\033[K" + constants.protocol+'://'+constants.hostname+"/~" + req.user.username +"/"+ article.slug +"-"+  article._id);
+        response.push("\033[K" + constants.protocol+'://'+constants.host+"/~" + req.user.username +"/"+ article.slug +"-"+  article._id);
         response.push("\033[K");
 
         res.send("OK^^^"+response.join(LB));
