@@ -1,7 +1,7 @@
 # weblog.sh
 __Blog from the Command Line — https://weblog.sh/__
 
-[https://weblog.sh](https://weblog.sh) is a blogging platform boiled down to its core. The only features are to save a draft, and to publish it.
+[weblog.sh](https://weblog.sh) is a blogging platform boiled down to its core. The only features are to save a draft, and to publish it.
 
 The post format is plain text<sup>1</sup>, your first line is the title. It launches your EDITOR to write posts.
 
