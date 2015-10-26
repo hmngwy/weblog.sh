@@ -204,9 +204,6 @@ app.get('/~:username', cache.route(), function (req, res, next) {
 
 app.get(constants.downloadpath, function (req, res, next) {
 
-  // res.setHeader('Content-disposition', 'attachment; filename='+constants.latest+'.sh');
-  // res.sendFile('client/'+constants.latest+'.sh' , { root : __dirname});
-
   var fs = require('fs');
   fs.readFile('client/'+constants.latest+'.sh', 'utf8', function (err,data) {
     if (err) {
@@ -214,6 +211,7 @@ app.get(constants.downloadpath, function (req, res, next) {
     }
     data = data.replace('{{ENDPOINT}}', constants.endpointurl);
     data = data.replace('{{BRAND}}', constants.brand);
+    res.setHeader('Content-disposition', 'attachment; filename='+constants.latest+'.sh');
     res.send(data);
   });
 
