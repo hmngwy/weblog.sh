@@ -26,7 +26,7 @@ app.use(bodyParser.text());
 app.use(function(req, res, next){
 
   if (req.hostname !== constants.hostname) {
-    res.header("Content-Type", "text/no");
+    res.header("Content-Type", "text/plain");
     res.send('no');
     res.end();
   } else {
