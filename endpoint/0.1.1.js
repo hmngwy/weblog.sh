@@ -18,7 +18,7 @@ var linkReplacer = function(match, full, text, url, string){
 }
 
 module.exports = {
-  ver: 'blog-0.1.1',
+  ver: '0.1.1',
 
   register: function(req, res, next, opts) {
 

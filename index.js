@@ -70,23 +70,50 @@ app.use(function(err, req, res, next) {
 
 app.post('/endpoint', function (req, res, next) {
 
-    var libname = req.headers['user-agent'].replace('/', 'X'); //sanitize ver
-    var run = require('./lib/'+libname);
+  var semver = require('semver');
+  var fs = require('fs');
 
-    if (run.ver != libname)
-      throw {code : "MODULE_NOT_FOUND"};
+  var clientVersion = req.headers['user-agent'].replace('/', 'X'); //sanitize ver
+  var clientSemver = clientVersion.match(/.*-(.*)$/)[1];
 
-    if (run[req.headers['x-action']] == undefined)
-      throw {code : "COMMAND_NOT_FOUND"};
+  var endpoint;
 
-    console.log(req.headers['x-action']);
-    run[req.headers['x-action']](req, res, next, {
-      callback: function(req, res, next, opts){
-        next();
+  fs.readdir('./endpoint', function(err, items) {
+      for (var i=0; i<items.length; i++) {
+        var endpointSemver = items[i].match(/(.*)\.js$/)[1];
+
+        if (semver.satisfies(clientSemver, endpointSemver)) {
+          try {
+            endpoint = require('./endpoint'+endpointSemver);
+            break;
+          } catch (err) {
+            res.send('BAD^^^Your version is not supported. If you think this is in error contact postmaster@weblog.sh');
+            next();
+          }
+
+        }
+
       }
-    });
+  });
+
+  if (endpoint[req.headers['x-action']] == undefined) {
+    res.send('BAD^^^Command not found.');
+    next();
+  }
+
+  console.log(req.headers['x-action']);
+  endpoint[req.headers['x-action']](req, res, next, {
+    callback: function(req, res, next, opts){
+      next();
+    }
+  });
 
 });
+
+//0.0.9 0.1.0
+//0.1.1
+//0.1.5
+//0.2.1
 
 
 app.get('/~:username/*-:id', cache.route(), function (req, res, next) {
