@@ -217,7 +217,7 @@ app.get(constants.downloadpath, function (req, res, next) {
 
 });
 
-app.get('/', cache.route(), function (req, res, next) {
+app.get('/', cache.route({ expire: 300  }), function (req, res, next) {
 
   res.render('home', {
     layout: 'main',
