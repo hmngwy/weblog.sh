@@ -79,21 +79,21 @@ app.post('/endpoint', function (req, res, next) {
   var endpoint;
 
   fs.readdir('./endpoint', function(err, items) {
-      for (var i=0; i<items.length; i++) {
-        var endpointSemver = items[i].match(/(.*)\.js$/)[1];
+    for (var i=0; i<items.length; i++) {
+      var endpointSemver = items[i].match(/(.*)\.js$/)[1];
 
-        if (semver.satisfies(clientSemver, endpointSemver)) {
-          try {
-            endpoint = require('./endpoint'+endpointSemver);
-            break;
-          } catch (err) {
-            res.send('BAD^^^Your version is not supported. If you think this is in error contact postmaster@weblog.sh');
-            next();
-          }
-
+      if (semver.satisfies(clientSemver, endpointSemver)) {
+        try {
+          endpoint = require('./endpoint'+endpointSemver);
+          break;
+        } catch (err) {
+          res.send('BAD^^^Your version is not supported. If you think this is in error contact postmaster@weblog.sh');
+          next();
         }
 
       }
+
+    }
   });
 
   if (endpoint[req.headers['x-action']] == undefined) {
