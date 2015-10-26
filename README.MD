@@ -45,6 +45,7 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 
 ### DO THIS
 
+- Invalidate cache when slug changes (i.e. implicilty deleted post)
 - Add **About** page
   - Discuss how the client works
   - Discuss need to knows, like certs from startssl and basic token based auth
