@@ -7,15 +7,15 @@ The post format is plain text<sup>1</sup>, your first line is the title. It laun
 
 It serves posts under your [~username](https://weblog.sh/~postmaster), which is the only thing it knows about you.
 
-1: [link format https://weblog.sh], this is the web after all
+The service aims to reduce the blogging workflow and presentation to its minimum, employing only core blogging features. Basically trying to get as close to "text files in a folder" but not leaving the "published online" domain. An antithesis to rich blogging platforms.
+
+<small>1: [link format https://weblog.sh], this is the web after all</small>
 
 ---
 
-This project repository — weblog.sh — contains the source code for the site.
+**This project repository — weblog.sh — contains the source code for the site.**
 
-The service aims to reduce the blogging workflow and presentation to its minimum, employing only core blog features. Basically trying to get as close to "text files in a folder" but not leaving the "published online" domain. An antithesis to rich blogging platforms.
-
-### About the platform
+### The Platform
 
 The features are minimal. You get a home page, which shows an index of all your posts, and a page for each article. An Atom feed is also provided, articles are syndicated in full.
 
@@ -29,15 +29,15 @@ The system is designed to have as little personally identifying information as p
 
 Passwords are stored after a one-way encryption.
 
-### About the CLI tool
+### The CLI tool
 
-All interaction with your blog is through this client, from registration, through article publishing, to article deletion, the site's homepage outlines all the commands.
+All interaction with your blog is through this client, from registration, to article publishing, to article deletion, the site's homepage outlines all the commands in the latest version.
 
 When you start or edit an article the client will launch your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
 
-### About the source code
+### The Source Code
 
-Basically each client version will activate a corresponding endpoint library of commands available for that version, the client corresponds to a library by its semver minor version. The command definitions are exclusive to each version but there is interest to keep it consistent with future versions.
+Basically each client version will activate a corresponding endpoint library of commands available for that version, the client corresponds to a library by its semver minor version. The command definitions are exclusive to each version but there is interest in keeping it consistent with future versions.
 
 Only the schemas are permanently consistent across versions.
 
@@ -71,6 +71,7 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 - Add TOS and PP to client
 - Custom domain support
 - Password update functionality
+- Rate limiting
 
 - Move the #About sections in README to wiki and link to it
 - Look into better authentication systems for CLI programs
