@@ -1,30 +1,31 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var schemas = require('./lib/schemas');
-var constants = require('./constants');
-var ratelimit = require('ratelimit.js');
+var express     = require('express');
+var exphbs      = require('express-handlebars');
+var bodyParser  = require('body-parser');
+var mongoose    = require('mongoose');
+var constants   = require('./constants');
+var schemas     = require('./lib/schemas');
+var cache       = require('./lib/cache');
+var ratelimit   = require('./lib/ratelimit');
 
-var cache = require('./lib/cache');
-
-var exphbs  = require('express-handlebars');
 var hbs = exphbs.create({
   defaultLayout: 'user',
   extname: '.hbs',
   helpers: {
-    shortDate: function (date) { return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }); },
-    shorterDate: function (date) { return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' }); }
+    shortDate: function (date) {
+      return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+    },
+    shorterDate: function (date) {
+      return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' }); 
+    }
   }
 });
 
-var User = mongoose.model('User', schemas.user);
+var User    = mongoose.model('User', schemas.user);
 var Article = mongoose.model('Article', schemas.article);
 
 var app = express();
-app.use(bodyParser.text());
 
 app.use(function(req, res, next){
-
   if (req.hostname !== constants.hostname) {
     res.header("Content-Type", "text/plain");
     res.status(404).send('(ﾉ´ヮ´)ﾉ*:･ﾟ✧');
@@ -32,12 +33,15 @@ app.use(function(req, res, next){
   } else {
     next();
   }
-
 });
+
+app.use(bodyParser.text());
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 if (process.env.NODE_ENV != "development") app.enable('view cache');
+
+app.use('/endpoint', ratelimit);
 
 app.use('/endpoint', function (req, res, next) {
   if(req.headers['x-token'] !== undefined) {
