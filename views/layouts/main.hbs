@@ -15,12 +15,13 @@
     }
     section, footer, .preview_wrap {
       width: 100%;
-      max-width: 55ch;
+      max-width: 56ch;
       margin: auto;
     }
      .preview_wrap {
        max-width: 59ch;
-       margin-bottom: 2ch;
+       margin: 6ch auto 4ch;
+       padding-bottom: 2ch;
      }
     h1, h2 {
       font-size: 1em;
@@ -54,9 +55,6 @@
       text-transform: uppercase;
       font-weight: bold;
     }
-    .output {
-      color: lightgrey;
-    }
     hr {
       border: 0;
       border-bottom: 4px solid #EEE;
@@ -82,6 +80,7 @@
     }
     .contrast {
       background-color: #F5F5F5;
+      margin: 4ch auto;
     }
     .contrast a {
       text-shadow: -1px -1px 0 #F5F5F5,1px -1px 0 #F5F5F5,-1px 1px 0 #F5F5F5,1px 1px 0 #F5F5F5;
@@ -89,8 +88,19 @@
     #support p {
       margin-top: 0;
     }
+    .term {
+      background-color: #111;
+      color: #CCC;
+    }
+    .term .prompt, .output {
+      color: #444;
+    }
+    .term hr {
+      border-color: #333;
+    }
     footer {
-      margin: 2ch auto;
+      margin: 4ch auto;
+      text-align: center;
     }
     footer a {
       color: grey;
