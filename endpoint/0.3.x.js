@@ -37,6 +37,7 @@ module.exports = {
         response.push("\033[1A\r");
         response.push("\033[K[" + user.username + "] → registered: "+constants.protocol+'://'+constants.host+"/~"+user.username);
         response.push("\033[K");
+        response.push("\033[K\n\n" + constants.licenseline);
         response.push("---");
         response.push(user.token);
 
@@ -96,6 +97,7 @@ module.exports = {
         response.push("\033[1A\r");
         response.push("\033[K[" + user.username + "] → login: "+constants.protocol+'://'+constants.host+"/~"+user.username);
         response.push("\033[K");
+        response.push("\033[K\n\n" + constants.licenseline);
         response.push("---");
         response.push(user.token);
 

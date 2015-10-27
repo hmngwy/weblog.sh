@@ -9,5 +9,10 @@ module.exports = {
   latest: process.env.LATESTCLIENT || 'blog-0.3.0',
   downloadpath: process.env.DOWNLOADPATH || '/d',
   md5: process.env.MD5 || 'XXXXXXXXXXXXXXXX',
-  limitmessage: '(ﾉ｀Д´)ﾉ you\'re going too fast!'
+  limitmessage: '(ﾉ｀Д´)ﾉ you\'re going too fast!',
+
+  licenseline: "By using this service you agree to our License, Terms of Service, and Privacy Policy.\n\n"+
+    "  GPLV3 License: https://goo.gl/93VKiw\n" +
+    "  Terms of Service: https://weblog.sh/terms\n" +
+    "  Privacy Policy: https://weblog.sh/privacy\n\n"
 }
