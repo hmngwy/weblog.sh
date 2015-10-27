@@ -36,3 +36,4 @@ node_modules
 !.elasticbeanstalk/*.global.yml
 
 .ebextensions
+nohup.out
