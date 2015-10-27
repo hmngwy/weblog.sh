@@ -15,7 +15,7 @@ var hbs = exphbs.create({
       return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
     },
     shorterDate: function (date) {
-      return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' }); 
+      return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' });
     }
   }
 });

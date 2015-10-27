@@ -1,3 +1,16 @@
+<section id="intro">
+  <div class="cell">
+    <p>This is a blogging platform boiled down to its core. The only features are to save a draft, and to publish it.</p>
+    <p>The post format is plain text<sup>1</sup>, your first line is the title. It launches your EDITOR to write posts.</p>
+    <p>It serves posts under your <a href="/~postmaster" target="_blank">~username</a>, which is the only thing it knows about you.</p>
+    <p>
+      Simple and <a href="https://www.eff.org/issues/anonymity">anonymous</a>.
+    </p>
+    <hr>
+    <p style="font-size:.75em;color:grey">1: [link format https://weblog.sh], this is the web after all</p>
+  </div>
+</section>
+
 <section id="install" class="contrast">
   <div class="cell">
     <header><h2>INSTALL</h2></header>
@@ -80,8 +93,8 @@
 
 <div class="preview_wrap">
   <h2>PREVIEW</h2>
-  <iframe id="iframe1" src="/~postmaster" class="preview index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px');"></iframe><!--
-  --><iframe src="/~postmaster/katakana-hiragana-plain-text-test-V19xqoNZx" class="preview page" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px');"></iframe>
+  <iframe id="iframe1" src="/~postmaster" class="preview index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe><!--
+  --><iframe src="/~postmaster/katakana-hiragana-plain-text-test-V19xqoNZx" class="preview page" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe>
 </div>
 
 <section id="support" class="contrast">
@@ -95,9 +108,6 @@
 
 <section>
   <div class="cell">
-    <header>
-      <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
-    </header>
     <p>An antithesis to all the blogging platforms that overstate their "simplicity".</p>
   </div>
 </section>
