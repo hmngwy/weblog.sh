@@ -14,7 +14,7 @@ var NUMDEL = '!NUM-';
 
 var linkPattern = /(\[([\w*\ ]+)\ ((https?|ftp|mailto):\/\/[^\s/$.?#].[^\s]*)\])+/gi;
 var linkReplacer = function(match, full, text, url, string){
-  return '<a href="'+url+'">'+text+'</a>';
+  return '<a href="'+url+'" rel="nofollow">'+text+'</a>';
 }
 
 module.exports = {
