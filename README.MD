@@ -70,8 +70,6 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 - Add GPL notice to client on registration
 - Add TOS and PP to client
 - Custom domain support
-- Password update functionality
-- Rate limiting
 
 - Move the #About sections in README to wiki and link to it
 - Look into better authentication systems for CLI programs
