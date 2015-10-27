@@ -250,6 +250,15 @@ app.get('/privacy', cache.route(), function (req, res, next) {
 
 });
 
+app.get('/about', cache.route(), function (req, res, next) {
+
+  res.render('about', {
+    layout: 'main',
+    latest: constants.latest,
+    constants: constants});
+
+});
+
 app.get('*', function(req, res){
   res.status(404);
   res.render('error', {message: 'NOT FOUND', layout: false});
