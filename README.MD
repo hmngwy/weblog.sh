@@ -29,7 +29,7 @@ The system is designed to have as little personally identifying information as p
 
 Passwords are stored after a one-way encryption.
 
-### The CLI tool
+### The CLI Tool
 
 All interaction with your blog is through this client, from registration, to article publishing, to article deletion, the site's homepage outlines all the commands in the latest version.
 
