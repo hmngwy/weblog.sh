@@ -17,8 +17,10 @@
     <p><a class="download" href="{{constants.downloadpath}}">Download Client ({{latest}})</a></p>
     <span class="comment"># OR DOWNLOAD AND INSTALL ALIAS IN CLI</span><br>
     <span class="prompt"></span>curl -# {{constants.protocol}}://{{constants.host}}{{constants.downloadpath}} > ~/weblog.sh<br>
+    <br>
+    <span class="comment"># ADD AN ALIAS TO ACCESS THE SCRIPT ANYWHERE</span><br>
     <span class="prompt"></span>echo "alias weblog=~/./weblog.sh" >> ~/.bashrc<br>
-    <span class="prompt"></span>chmod +x ~/weblog.sh<br>
+    <span class="prompt"></span>chmod +x ~/weblog.sh &amp;&amp; . ~/.bashrc<br>
     <span class="prompt"></span>weblog help
     <hr>
     <p><span style="color:darkgrey;word-break:break-all">MD5 ({{latest}}) = {{constants.md5}}</span></p>
