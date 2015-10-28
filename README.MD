@@ -59,16 +59,8 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 
 ### DO THIS
 
-- Add **About** page
-  - Discuss how the client works
-  - Discuss need to knows, like certs from startssl and basic token based auth
-  - Cookie notice
-  - Contact information
-  - Policies and Disclaimers
 - Invalidate cache when slug changes (i.e. implicitly deleted post)
 - "Since" based pagination
-- Add GPL notice to client on registration
-- Add TOS and PP to client
 - Custom domain support
 
 - Move the #About sections in README to wiki and link to it
