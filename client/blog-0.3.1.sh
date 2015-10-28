@@ -194,7 +194,7 @@ function sub_write() {
     OPTIND=2
   elif [[ $1 =~ ^-?[0-9]+$ ]] || [ "$1" == "RECOVER" ]; then
     _send "fetch" $1
-    echo "\033[2A"
+
     id=${output%^^^*}
     content=${output##*^^^}
     # exit
@@ -214,7 +214,14 @@ function sub_write() {
   done
 
   # launch editor
-  $EDITOR $WORKSPACE
+  if hash $EDITOR 2>/dev/null; then
+    $EDITOR $WORKSPACE
+  elif hash editor 2>/dev/null; then
+    editor $WORKSPACE
+  else
+    echo "No default editor found, using nano."
+    nano $WORKSPACE
+  fi
 
   if [ -z  "$1" ] || [ "$1" == "RECOVER" ]; then
     # echo "creating new"
