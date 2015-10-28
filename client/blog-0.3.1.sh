@@ -417,12 +417,15 @@ function _sendNoAuth() {
 
 sub_help(){
   echo ""
-  echo "$BRAND client - $VER\n"
+  echo "$BRAND client - $VER"
+  echo ""
   echo "Your editor is set to '$EDITOR'. Change your editor by setting"
-  echo "EDITOR in your .bashrc file like:\n"
+  echo "EDITOR in your .bashrc file like:"
+  echo ""
   echo "  EDITOR=nano"
   echo ""
-  echo "USAGE: $ProgName <subcommand>\n"
+  echo "USAGE: $ProgName <subcommand>"
+  echo ""
   echo "  Subcommands:"
   echo ""
   echo "    register <username>       Creates a new account"
