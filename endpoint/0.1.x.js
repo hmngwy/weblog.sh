@@ -83,6 +83,12 @@ module.exports = {
 
     var payload = req.body.trim();
     var raw = payload;
+
+    var Entities = require('html-entities').AllHtmlEntities;
+    var entities = new Entities();
+
+    payload = entities.encode(payload);
+    
     var lines = payload.split("\n");
     var title = lines.shift();
 
