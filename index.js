@@ -52,7 +52,7 @@ app.use('/endpoint', function (req, res, next) {
         req.user = user;
         next();
       } else {
-        res.status(401).send('BAD^^^Invalid token.');
+        res.status(401).send('BAD^^^Invalid token, please login again.');
       }
     });
   } else {
