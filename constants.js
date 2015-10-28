@@ -6,7 +6,7 @@ module.exports = {
   port: process.env.PORT || 3000,
   mongourl: process.env.MONGO_URL || 'mongodb://localhost/weblogsh',
   endpointurl: process.env.ENDPOINT || 'http://localhost:3000/endpoint',
-  latest: process.env.LATESTCLIENT || 'blog-0.3.2',
+  latest: process.env.LATESTCLIENT || 'blog-0.3.3',
   downloadpath: process.env.DOWNLOADPATH || '/d',
   md5: process.env.MD5 || 'XXXXXXXXXXXXXXXX',
   limitmessage: '(ﾉ｀Д´)ﾉ you\'re going too fast!',
