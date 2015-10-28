@@ -201,6 +201,12 @@ module.exports = {
           if (err) console.log('Error: ', err);
 
           if (article) {
+
+            var paths = [
+              "/~" + req.user.username,
+              "/~" + req.user.username + "/",
+              "/~" + req.user.username +"/"+ article.slug +"-"+  article._id];
+
             article.raw = raw;
             article.title = title;
             article.content = payload;
@@ -219,11 +225,6 @@ module.exports = {
               res.send("OK^^^" + saved._id + '---' + response.join(LB));
 
               // invalidate cache
-
-              var paths = [
-                "/~" + req.user.username,
-                "/~" + req.user.username + "/",
-                "/~" + req.user.username +"/"+ saved.slug +"-"+  saved._id];
               for (var i in paths) {
 
                 cache.del(paths[i], function(err, num){
