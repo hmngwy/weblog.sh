@@ -7,10 +7,12 @@
     </div>
   </article>
 
+  {{#if @root.showNav}}
   {{#if @last}}
   <nav>
     <a href="./?before={{getTime published_ts}}">Older</a>
   </nav>
+  {{/if}}
   {{/if}}
 
 {{/each}}

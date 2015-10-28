@@ -207,10 +207,12 @@ app.get('/~:username', cache.route(), function (req, res, next) {
     query.published_ts = {'$lt': new Date(parseInt(req.query.before))};
   }
 
+  var pageLength = 40;
+
   Article
   .find(query)
   .sort({published_ts: -1})
-  .limit(3)
+  .limit(pageLength)
   .exec(function(err, articles){
     if (err) console.log('Error: ', err);
 
@@ -218,6 +220,10 @@ app.get('/~:username', cache.route(), function (req, res, next) {
 
     if( req.query.before ) {
       templateData.before = true;
+    }
+
+    if( articles.length == pageLength ) {
+      templateData.showNav = true;
     }
 
     res.render('index', templateData);
