@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly VER="blog-0.3.1"
+readonly VER="blog-0.3.2"
 
 readonly BRAND="{{BRAND}}"
 readonly ENDPOINT="{{ENDPOINT}}"
@@ -214,12 +214,12 @@ function sub_write() {
   done
 
   # launch editor
-  if hash $EDITOR 2>/dev/null; then
+  if [ -n "$EDITOR" ]; then
     $EDITOR $WORKSPACE
   elif hash editor 2>/dev/null; then
     editor $WORKSPACE
   else
-    echo "No default editor found, using nano."
+    echo "No default editor set, using nano."
     nano $WORKSPACE
   fi
 
