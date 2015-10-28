@@ -6,4 +6,11 @@
     </header>
     </div>
   </article>
+
+  {{#if @last}}
+  <nav>
+    <a href="./?before={{getTime published_ts}}">Older</a>
+  </nav>
+  {{/if}}
+
 {{/each}}

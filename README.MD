@@ -59,11 +59,7 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 
 ### DO THIS
 
-- Invalidate cache when slug changes (i.e. implicitly deleted post)
-- "Since" based pagination
 - Custom domain support
-
-- Move the #About sections in README to wiki and link to it
 - Look into better authentication systems for CLI programs
 
 

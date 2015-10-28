@@ -16,6 +16,9 @@ var hbs = exphbs.create({
     },
     shorterDate: function (date) {
       return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' });
+    },
+    getTime: function (date) {
+      return date.getTime();
     }
   }
 });
@@ -195,14 +198,29 @@ app.get('/~:username/feed', cache.route(), function (req, res, next) {
 
 app.get('/~:username', cache.route(), function (req, res, next) {
 
+  var query = {
+    author: req.user._id,
+    status: 'published'
+  }
+
+  if( req.query.before ) {
+    query.published_ts = {'$lt': new Date(parseInt(req.query.before))};
+  }
+
   Article
-  .find({author: req.user._id, status: 'published'})
+  .find(query)
   .sort({published_ts: -1})
-  .limit(100)
+  .limit(3)
   .exec(function(err, articles){
     if (err) console.log('Error: ', err);
 
-    res.render('index', {user: req.user, articles: articles, isIndex: true, constants: constants});
+    var templateData = {user: req.user, articles: articles, isIndex: true, constants: constants};
+
+    if( req.query.before ) {
+      templateData.before = true;
+    }
+
+    res.render('index', templateData);
 
   });
 
