@@ -128,6 +128,8 @@ module.exports = {
       var Entities = require('html-entities').AllHtmlEntities;
       var entities = new Entities();
 
+      payload = entities.encode(payload);
+
       // remove empty lines
       lines = lines.filter(function(s){ return s.trim() != ''; });
       // wrap lines in <p>
@@ -135,7 +137,6 @@ module.exports = {
       // rejoin array to string
       payload = lines.join("\n").trim();
       // link processing
-      payload = entities.encode(payload);
       payload = payload.replace(linkPattern, linkReplacer);
 
       if (!req.headers['x-articlenum'] && !req.headers['x-articleid']) {
