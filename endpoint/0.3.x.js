@@ -34,10 +34,9 @@ module.exports = {
       if (err) console.log('Error: ', err);
       if (user) {
         var response = [""];
-        response.push("\033[1A\r");
-        response.push("\033[K[" + user.username + "] → registered: "+constants.protocol+'://'+constants.host+"/~"+user.username);
-        response.push("\033[K");
-        response.push("\033[K\n\n" + constants.licenseline);
+        response.push("\n"); // using \n here because we are not joining with LB
+        response.push("[" + user.username + "] → registered: "+constants.protocol+'://'+constants.host+"/~"+user.username);
+        response.push("\n\n" + constants.licenseline);
         response.push("---");
         response.push(user.token);
 
@@ -68,9 +67,9 @@ module.exports = {
       }
 
       var response = [""];
-      response.push("\033[1A\r");
-      response.push("\033[K[" + saved.username + "] → password updated: "+constants.protocol+'://'+constants.host+"/~"+saved.username);
-      response.push("\033[K");
+      response.push("\n"); // using \n here because we are not joining with LB
+      response.push("[" + saved.username + "] → password updated: "+constants.protocol+'://'+constants.host+"/~"+saved.username);
+      response.push("\n");
       response.push("---");
       response.push(saved.token);
 
@@ -94,10 +93,9 @@ module.exports = {
         user.save();
 
         var response = [""];
-        response.push("\033[1A\r");
-        response.push("\033[K[" + user.username + "] → login: "+constants.protocol+'://'+constants.host+"/~"+user.username);
-        response.push("\033[K");
-        response.push("\033[K\n\n" + constants.licenseline);
+        response.push("\n"); // using \n here because we are not joining with LB
+        response.push("[" + user.username + "] → login: "+constants.protocol+'://'+constants.host+"/~"+user.username);
+        response.push("\n\n" + constants.licenseline);
         response.push("---");
         response.push(user.token);
 
@@ -162,10 +160,9 @@ module.exports = {
 
           var response = [""];
 
-          response.push("\033[3A\r");
-          response.push("\033[K");
-          response.push("\033[K[" + req.user.username + "] → saved: "+saved.title+ " ("+saved.num+")");
-          response.push("\033[K");
+          response.push("");
+          response.push("[" + req.user.username + "] → saved: "+saved.title+ " ("+saved.num+")");
+          response.push("");
 
           res.send("OK^^^" + saved._id + '---' + response.join(LB));
 
@@ -215,10 +212,9 @@ module.exports = {
               };
 
               var response = [""];
-              response.push("\033[3A\r");
-              response.push("\033[K");
-              response.push("\033[K[" + req.user.username + "] → updated: "+saved.title+ " ("+saved.num+")");
-              response.push("\033[K");
+              response.push("");
+              response.push("[" + req.user.username + "] → updated: "+saved.title+ " ("+saved.num+")");
+              response.push("");
 
               res.send("OK^^^" + saved._id + '---' + response.join(LB));
 
@@ -319,11 +315,10 @@ module.exports = {
         article.save();
 
         var response = [""];
-        response.push("\033[3A\r");
-        response.push("\033[K");
-        response.push("\033[K[" + req.user.username + "] → status - "+article.status+": "+article.title+ " ("+article.num+")");
-        response.push("\033[K" + constants.protocol+'://'+constants.host+"/~" + req.user.username +"/"+ article.slug +"-"+  article._id);
-        response.push("\033[K");
+        response.push("");
+        response.push("[" + req.user.username + "] → status - "+article.status+": "+article.title+ " ("+article.num+")");
+        response.push("" + constants.protocol+'://'+constants.host+"/~" + req.user.username +"/"+ article.slug +"-"+  article._id);
+        response.push("");
 
         res.send("OK^^^"+response.join(LB));
 
@@ -363,10 +358,9 @@ module.exports = {
         article.remove();
 
         var response = [""];
-        response.push("\033[3A\r");
-        response.push("\033[K");
-        response.push("\033[K[" + req.user.username + "] → deleted: "+article.title+ " ("+article.num+")");
-        response.push("\033[K");
+        response.push("");
+        response.push("[" + req.user.username + "] → deleted: "+article.title+ " ("+article.num+")");
+        response.push("");
 
         res.send("OK^^^"+response.join(LB));
 
@@ -407,10 +401,10 @@ module.exports = {
       if (articles.length != 0) {
         var output = [""];
 
-        output.push("\033[3A\r");
-        output.push("\033[K");
-        output.push("\033[K[" + req.user.username + "] → browse:" + payload);
-        output.push("\033[K");
+        output.push("");
+        output.push("");
+        output.push("[" + req.user.username + "] → browse:" + payload);
+        output.push("");
 
         var tableHead = ['num', 'title', 'modified'];
 
