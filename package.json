@@ -10,7 +10,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "blessed": "^0.1.81",
     "body-parser": "^1.14.1",
+    "buffer-equal-constant-time": "^1.0.1",
     "cli-table2": "^0.1.9",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
@@ -23,6 +25,7 @@
     "redis": "^2.2.5",
     "semver": "^5.0.3",
     "sha256": "^0.2.0",
-    "shortid": "^2.2.4"
+    "shortid": "^2.2.4",
+    "ssh2": "^0.4.12"
   }
 }

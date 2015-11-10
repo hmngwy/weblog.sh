@@ -294,3 +294,7 @@ var server = app.listen(constants.port, function () {
   var host = server.address().address;
   var port = server.address().port;
 });
+
+require('./lib/ssh-server').listen(2222, function(){
+  console.log('SSH Server Running');
+});
