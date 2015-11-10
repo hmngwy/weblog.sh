@@ -17,7 +17,6 @@
     "express-redis-cache": "^0.1.8",
     "feed": "^0.2.6",
     "html-entities": "^1.2.0",
-    "md5": "^2.0.0",
     "mongoose": "^4.1.12",
     "mongoose-url-slugs": "^0.1.4",
     "ratelimit.js": "^1.7.0",
