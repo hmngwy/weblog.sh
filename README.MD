@@ -47,7 +47,6 @@ Other than that, it's mostly a basic Express web app.
 
 ## Contributing
 
-- Pick up any of the to-do items below and send me a pull request
 - Take up any of the issues reported in [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
   - Answer user questions, issues arising with usage
   - Or look into the detail, and maybe fix reported bugs
@@ -57,23 +56,9 @@ Other than that, it's mostly a basic Express web app.
 
 I am figuring out the policies needed to allow people in as Repo Contributors, I will disclose that when I figure it out. But for now you should be able to send pull requests for anything and I will acknowledge them.
 
-### DO THIS
+### TO-DO List
 
-- Add **About** page
-  - Discuss how the client works
-  - Discuss need to knows, like certs from startssl and basic token based auth
-  - Cookie notice
-  - Contact information
-  - Policies and Disclaimers
-- Invalidate cache when slug changes (i.e. implicitly deleted post)
-- "Since" based pagination
-- Add GPL notice to client on registration
-- Add TOS and PP to client
-- Custom domain support
-
-- Move the #About sections in README to wiki and link to it
-- Look into better authentication systems for CLI programs
-
+We are using [Issues](https://github.com/hmngwy/weblog.sh/issues) as a to-do list. Items are labeled according to their priority and which component they are for. 
 
 ## Getting in touch
 postmaster at weblog•sh
