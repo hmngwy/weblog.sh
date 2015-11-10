@@ -1,3 +1,5 @@
+'use strict';
+
 var express     = require('express');
 var exphbs      = require('express-handlebars');
 var bodyParser  = require('body-parser');
@@ -27,7 +29,7 @@ var app = express();
 
 app.use(function(req, res, next){
   if (req.hostname !== constants.hostname) {
-    res.header("Content-Type", "text/plain");
+    res.header('Content-Type', 'text/plain');
     res.status(404).send('(ﾉ´ヮ´)ﾉ*:･ﾟ✧');
     res.end();
   } else {
@@ -39,14 +41,14 @@ app.use(bodyParser.text());
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
-if (process.env.NODE_ENV != "development") app.enable('view cache');
+if (process.env.NODE_ENV !== 'development') { app.enable('view cache'); }
 
 app.use('/endpoint', ratelimit);
 
 app.use('/endpoint', function (req, res, next) {
   if(req.headers['x-token'] !== undefined) {
     User.findOne({token: req.headers['x-token']}, function(err, user){
-      if (err) console.log('Error: ', err);
+      if (err) { console.log('Error: ', err); }
 
       if (user) {
         req.user = user;
@@ -63,7 +65,7 @@ app.use('/endpoint', function (req, res, next) {
 app.use(['/~:username', '/~:username*'], function (req, res, next) {
 
   User.findOne({username: req.params.username}, function(err, user){
-    if (err) console.log('Error: ', err);
+    if (err) { console.log('Error: ', err); }
 
     if (user) {
       req.user = user;
@@ -107,18 +109,18 @@ app.post('/endpoint', function (req, res, next) {
       }
     }
 
-    if (endpoint == null) {
+    if (endpoint === null) {
       res.send('BAD^^^Your version is not supported.');
       next();
     } else {
 
-      if (endpoint[req.headers['x-action']] == undefined) {
+      if (endpoint[req.headers['x-action']] === undefined) {
         res.send('BAD^^^Command not found.');
         next();
       }
 
       endpoint[req.headers['x-action']](req, res, next, {
-        callback: function(req, res, next, opts){
+        callback: function(req, res, next){
           next();
         }
       });
@@ -131,12 +133,12 @@ app.post('/endpoint', function (req, res, next) {
 });
 
 
-app.get('/~:username/*-:id', cache.route(), function (req, res, next) {
+app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
   Article
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
   .exec(function(err, article){
-    if (err) console.log('Error: ', err);
+    if (err) { console.log('Error: ', err); }
 
     if (article) {
       res.render('post', {user: req.user, article: article, isPost: true, constants: constants});
@@ -151,7 +153,7 @@ app.get('/~:username/*-:id', cache.route(), function (req, res, next) {
 });
 
 
-app.get('/~:username/feed', cache.route(), function (req, res, next) {
+app.get('/~:username/feed', cache.route(), function (req, res) {
 
   var Feed = require('feed');
   var feed = new Feed({
@@ -170,18 +172,18 @@ app.get('/~:username/feed', cache.route(), function (req, res, next) {
   .sort({published_ts: -1})
   .limit(20)
   .exec(function(err, posts){
-    if (err) console.log('Error: ', err);
+    if (err) { console.log('Error: ', err); }
 
     for (var key in posts) {
       feed.item({
-        title:          posts[key].title,
-        link:           constants.protocol+'://'+constants.host+'/~'+req.user.username+'/'+posts[key].slug+'-'+posts[key]._id,
+        title: posts[key].title,
+        link: constants.protocol+'://'+constants.host+'/~'+req.user.username+'/'+posts[key].slug+'-'+posts[key]._id,
         description: posts[key].content,
         author: [{
-          title:          '~'+req.user.username,
-          link:           constants.protocol+'://'+constants.host+'/~'+req.user.username
+          title: '~'+req.user.username,
+          link: constants.protocol+'://'+constants.host+'/~'+req.user.username
         }],
-        date:           posts[key].published_ts,
+        date: posts[key].published_ts,
       });
 
     }
@@ -193,14 +195,14 @@ app.get('/~:username/feed', cache.route(), function (req, res, next) {
 
 });
 
-app.get('/~:username', cache.route(), function (req, res, next) {
+app.get('/~:username', cache.route(), function (req, res) {
 
   Article
   .find({author: req.user._id, status: 'published'})
   .sort({published_ts: -1})
   .limit(100)
   .exec(function(err, articles){
-    if (err) console.log('Error: ', err);
+    if (err) { console.log('Error: ', err); }
 
     res.render('index', {user: req.user, articles: articles, isIndex: true, constants: constants});
 
@@ -208,7 +210,7 @@ app.get('/~:username', cache.route(), function (req, res, next) {
 
 });
 
-app.get(constants.downloadpath, function (req, res, next) {
+app.get(constants.downloadpath, function (req, res) {
 
   var fs = require('fs');
   fs.readFile('client/'+constants.latest+'.sh', 'utf8', function (err,data) {
@@ -223,7 +225,7 @@ app.get(constants.downloadpath, function (req, res, next) {
 
 });
 
-app.get('/', cache.route({ expire: 300  }), function (req, res, next) {
+app.get('/', cache.route({ expire: 300  }), function (req, res) {
 
   res.render('home', {
     layout: 'main',
@@ -232,7 +234,7 @@ app.get('/', cache.route({ expire: 300  }), function (req, res, next) {
 
 });
 
-app.get('/terms', cache.route(), function (req, res, next) {
+app.get('/terms', cache.route(), function (req, res) {
 
   res.render('terms', {
     layout: 'main',
@@ -241,7 +243,7 @@ app.get('/terms', cache.route(), function (req, res, next) {
 
 });
 
-app.get('/privacy', cache.route(), function (req, res, next) {
+app.get('/privacy', cache.route(), function (req, res) {
 
   res.render('privacy', {
     layout: 'main',
@@ -250,7 +252,7 @@ app.get('/privacy', cache.route(), function (req, res, next) {
 
 });
 
-app.get('/about', cache.route(), function (req, res, next) {
+app.get('/about', cache.route(), function (req, res) {
 
   res.render('about', {
     layout: 'main',
@@ -267,6 +269,4 @@ app.get('*', function(req, res){
 var server = app.listen(constants.port, function () {
   var host = server.address().address;
   var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
 });
