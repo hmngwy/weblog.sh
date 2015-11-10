@@ -37,3 +37,5 @@ node_modules
 
 .ebextensions
 nohup.out
+
+tmp
