@@ -19,7 +19,6 @@
       margin: auto;
     }
      .preview_wrap {
-       max-width: 59ch;
        margin: 10ch auto 8ch;
        padding-bottom: 2ch;
      }
@@ -63,12 +62,7 @@
     section {
       position: relative;
       padding: 2ch;
-      display: table;
       box-sizing: border-box;
-    }
-    .cell {
-      display: table-cell;
-      vertical-align: middle;
     }
     .name a {
       background-image: none;
@@ -132,6 +126,26 @@
         border-left: 0;
       }
     }
+    @media screen and (min-width:1080px) {
+      section {
+        width: 537px;
+      }
+      .wide {
+        text-align: center;
+        margin-bottom: 2ch;
+      }
+      .col {
+        display: inline-block;
+        vertical-align: top;
+        text-align: initial;
+      }
+      .col:first-of-type {
+        margin-right: 4ch;
+      }
+      .preview_wrap {
+        margin: 0;
+      }
+    }
     @media screen and (min-width:1367px) {
       body {
         font: 20px/1.75em 'Roboto Mono';
@@ -140,15 +154,6 @@
     </style>
   </head>
   <body>
-
-    <section id="lead">
-      <div class="cell">
-        <header>
-          <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
-          <h1>BLOG FROM THE COMMAND-LINE</h1>
-        </header>
-      </div>
-    </section>
 
     {{{body}}}
 

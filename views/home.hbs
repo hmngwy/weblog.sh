@@ -1,115 +1,139 @@
-<section id="intro">
-  <div class="cell">
-    <p>This is a blogging platform boiled down to its core. The only features are saving drafts, and publishing them.</p>
-    <p>The post format is plain text<sup>1</sup>, it launches your EDITOR to write drafts. First line is the title.</p>
-    <p>It serves posts under your <a href="/~postmaster" target="_blank">~username</a>, which is the only thing it knows about you.</p>
-    <p>
-      Simple and <a href="https://www.eff.org/issues/anonymity" target="_blank">anonymous</a>.
-    </p>
-    <hr>
-    <p style="font-size:.75em;color:grey">1: [link format https://weblog.sh], this is the web after all</p>
+<div class="wide">
+
+  <div class="col">
+    <section id="lead">
+      <div class="cell">
+        <header>
+          <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
+          <h1>BLOG FROM THE COMMAND-LINE</h1>
+        </header>
+      </div>
+    </section>
+
+
+    <section id="intro">
+      <div class="cell">
+        <p>This is a blogging platform boiled down to its core. The only features are saving drafts, and publishing them.</p>
+        <p>The post format is plain text<sup>1</sup>, it launches your EDITOR to write drafts. First line is the title.</p>
+        <p>It serves posts under your <a href="/~postmaster" target="_blank">~username</a>, which is the only thing it knows about you.</p>
+        <p>
+          Simple and <a href="https://www.eff.org/issues/anonymity" target="_blank">anonymous</a>.
+        </p>
+        <hr>
+        <p style="font-size:.75em;color:grey">1: [link format https://weblog.sh], this is the web after all</p>
+      </div>
+    </section>
   </div>
-</section>
 
-<section id="install" class="contrast">
-  <div class="cell">
-    <header><h2>INSTALL</h2></header>
-    <p><a class="download" href="{{constants.downloadpath}}">Download Client ({{latest}})</a></p>
-    <span class="comment"># OR DOWNLOAD AND INSTALL ALIAS IN CLI</span><br>
-    <span class="prompt"></span>curl -# {{constants.protocol}}://{{constants.host}}{{constants.downloadpath}} > ~/weblog.sh<br>
-    <br>
-    <span class="comment"># ADD AN ALIAS TO ACCESS THE SCRIPT ANYWHERE</span><br>
-    <span class="prompt"></span>echo "alias weblog=~/./weblog.sh" >> ~/.bashrc<br>
-    <span class="prompt"></span>chmod +x ~/weblog.sh &amp;&amp; . ~/.bashrc<br>
-    <span class="prompt"></span>weblog help
-    <hr>
-    <p><span style="color:darkgrey;word-break:break-all">{{constants.md5}}</span></p>
-  </div>
-</section>
+  <div class="col">
 
-<section id="usage" class="term">
-  <div class="cell">
-
-    <header><h2>USAGE</h2></header>
-    <p>
-      <span class="comment"># Registration</span><br>
-      <span class="prompt"></span>blog register edward
-    </p>
-    <p>
-      <span class="comment"># Logging In</span><br>
-      <span class="prompt"></span>blog login edward
-    </p>
-
-    <hr>
-
-    <p>
-      <span class="comment"># Create New Article</span><br>
-      <span class="prompt"></span>blog write
-    </p>
-
-    <p>
-      <span class="comment"># Browse Drafts</span><br>
-      <span class="prompt"></span>blog drafts<br>
-      <span class="output">4 — WORKING TITLE - October 2&hellip;<br>
-      3 — ANOTHER ARTICLE - October&hellip;</span>
-    </p>
-
-    <p>
-      <span class="comment"># Browse Published</span><br>
-      <span class="prompt"></span>blog posts<br>
-      <span class="output">2 — SECOND TITLE - October 17&hellip;<br>
-      1 — FIRST ARTICLE - October 1&hellip;</span>
-    </p>
-
-    <p>
-      <span class="comment"># Edit Existing Draft</span><br>
-      <span class="prompt"></span>blog write 3
-    </p>
-
-    <p>
-      <span class="comment"># Continue Last Draft</span><br>
-      <span class="prompt"></span>blog continue</code>
-    </p>
-
-    <hr>
-
-    <p>
-      <span class="comment"># Publish/Unpublish Article</span><br>
-      <span class="prompt"></span>blog publish 3<br>
-      <span class="prompt"></span>blog unpublish 3
-    </p>
-
-    <p>
-      <span class="comment"># Push Local File</span><br>
-      <span class="prompt"></span>blog push ~/article.txt<br>
-      <span class="prompt"></span>blog push ~/article.txt 3
-    </p>
-
-    <p>
-      <span class="comment"># Delete Article</span><br>
-      <span class="prompt"></span>blog delete 3</code>
-    </p>
+    <section id="install" class="contrast">
+      <div class="cell">
+        <header><h2>INSTALL</h2></header>
+        <p><a class="download" href="{{constants.downloadpath}}">Download Client ({{latest}})</a></p>
+        <span class="comment"># OR DOWNLOAD AND INSTALL ALIAS IN CLI</span><br>
+        <span class="prompt"></span>curl -# {{constants.protocol}}://{{constants.host}}{{constants.downloadpath}} > ~/weblog.sh<br>
+        <br>
+        <span class="comment"># ADD AN ALIAS TO ACCESS THE SCRIPT ANYWHERE</span><br>
+        <span class="prompt"></span>echo "alias weblog=~/./weblog.sh" >> ~/.bashrc<br>
+        <span class="prompt"></span>chmod +x ~/weblog.sh &amp;&amp; . ~/.bashrc<br>
+        <span class="prompt"></span>weblog help
+        <hr>
+        <p><span style="color:darkgrey;word-break:break-all">{{constants.md5}}</span></p>
+      </div>
+    </section>
 
   </div>
-</section>
 
-<div class="preview_wrap">
-  <h2>PREVIEW</h2>
-  <iframe id="iframe1" src="/~postmaster" class="preview index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe><!--
-  --><iframe src="/~postmaster/katakana-hiragana-plain-text-test-V19xqoNZx" class="preview page" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe>
 </div>
 
-<section id="support" class="contrast">
-  <div class="cell">
+<div class="wide">
 
-    <p>This service is free to reinforce anonymity, it does cost money to run this, about $170/year.</p>
-    <h2>SUPPORT ANONYMOUSLY THROUGH <a href="https://gratipay.com/weblog-sh/" target="_blank">♥︎GRATIPAY</a></h2>
+  <div class="col">
+    <section id="usage" class="term">
+
+      <header><h2>USAGE</h2></header>
+      <p>
+        <span class="comment"># Registration</span><br>
+        <span class="prompt"></span>blog register edward
+      </p>
+      <p>
+        <span class="comment"># Logging In</span><br>
+        <span class="prompt"></span>blog login edward
+      </p>
+
+      <hr>
+
+      <p>
+        <span class="comment"># Create New Article</span><br>
+        <span class="prompt"></span>blog write
+      </p>
+
+      <p>
+        <span class="comment"># Browse Drafts</span><br>
+        <span class="prompt"></span>blog drafts<br>
+        <span class="output">4 — WORKING TITLE - October 2&hellip;<br>
+        3 — ANOTHER ARTICLE - October&hellip;</span>
+      </p>
+
+      <p>
+        <span class="comment"># Browse Published</span><br>
+        <span class="prompt"></span>blog posts<br>
+        <span class="output">2 — SECOND TITLE - October 17&hellip;<br>
+        1 — FIRST ARTICLE - October 1&hellip;</span>
+      </p>
+
+      <p>
+        <span class="comment"># Edit Existing Draft</span><br>
+        <span class="prompt"></span>blog write 3
+      </p>
+
+      <p>
+        <span class="comment"># Continue Last Draft</span><br>
+        <span class="prompt"></span>blog continue</code>
+      </p>
+
+      <hr>
+
+      <p>
+        <span class="comment"># Publish/Unpublish Article</span><br>
+        <span class="prompt"></span>blog publish 3<br>
+        <span class="prompt"></span>blog unpublish 3
+      </p>
+
+      <p>
+        <span class="comment"># Push Local File</span><br>
+        <span class="prompt"></span>blog push ~/article.txt<br>
+        <span class="prompt"></span>blog push ~/article.txt 3
+      </p>
+
+      <p>
+        <span class="comment"># Delete Article</span><br>
+        <span class="prompt"></span>blog delete 3</code>
+      </p>
+
+    </section>
 
   </div>
-</section>
+
+  <div class="col">
+    <div class="preview_wrap">
+      <h2>PREVIEW</h2>
+      <iframe id="iframe1" src="/~postmaster" class="preview index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe><!--
+      --><iframe src="/~postmaster/katakana-hiragana-plain-text-test-V19xqoNZx" class="preview page" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden');"></iframe>
+    </div>
+
+    <section id="support" class="contrast">
+
+      <p>This service is free to reinforce anonymity, it does cost money to run this, about $170/year.</p>
+      <h2>SUPPORT ANONYMOUSLY THROUGH <a href="https://gratipay.com/weblog-sh/" target="_blank">♥︎GRATIPAY</a></h2>
+
+    </section>
+
+  </div>
+</div>
 
 <section>
-  <div class="cell">
-    <p>An antithesis to all the blogging platforms that overstate their "minimalism".</p>
-  </div>
+  <hr>
+  <p>An antithesis to all the blogging platforms that overstate their "minimalism".</p>
 </section>
