@@ -58,7 +58,7 @@ I am figuring out the policies needed to allow people in as Repo Contributors, I
 
 ### TO-DO List
 
-We are using [Issues](https://github.com/hmngwy/weblog.sh/issues) as a to-do list. Items are labeled according to their priority and which component they are for. 
+We are using [Issues](https://github.com/hmngwy/weblog.sh/issues) as a to-do list. Items are labeled according to their priority and which component they are for.
 
 ## Getting in touch
 postmaster at weblog•sh
