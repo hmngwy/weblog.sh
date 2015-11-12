@@ -12,7 +12,7 @@ var INDENT = "  ";
 var SPACER = "---------------";
 var NUMDEL = '!NUM-';
 
-var linkPattern = /(\[([\w*\ ]+)\ ((https?|ftp|mailto):\/\/[^\s/$.?#].[^\s]*)\])+/gi;
+var linkPattern = /(\[([\w*\ .\-\+\!\@\#\$\%\^\&\*\(\)\[\]\{\}\<\>\,\?\/\'\"\;\:\\]+)\ ((https?|ftp|mailto):\/\/[^\s/$.?#].[^\s]*)\])+/gi;
 var linkReplacer = function(match, full, text, url, string){
   return '<a href="'+url+'" rel="nofollow">'+text+'</a>';
 }
