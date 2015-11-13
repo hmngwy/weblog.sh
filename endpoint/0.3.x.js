@@ -121,7 +121,7 @@ module.exports = {
 
     payload = entities.encode(payload);
 
-    var lines = payload.split("\n");
+    var lines = payload.split("\n\n");
     var title = lines.shift();
 
     if (title.trim() == '') {
@@ -132,7 +132,7 @@ module.exports = {
       // remove empty lines
       lines = lines.filter(function(s){ return s.trim() != ''; });
       // wrap lines in <p>
-      lines = lines.map(function(s){ return "<p>"+s+"</p>"; });
+      lines = lines.map(function(s){ return "<p>"+s.replace(/\n/gi, '<br>')+"</p>"; });
       // rejoin array to string
       payload = lines.join("\n").trim();
       // link processing
