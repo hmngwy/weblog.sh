@@ -3,9 +3,9 @@ __Blog from the Command Line — https://weblog.sh/__
 
 [weblog.sh](https://weblog.sh) is a blogging platform boiled down to its core. The only features are to save a draft, and to publish it.
 
-The post format is plain text<sup>1</sup>, your first line is the title. It launches your EDITOR to write posts.
+The post format is plain text<sup>1</sup>, use SCP to transfer posts. First line is the title.
 
-It serves posts under your [~username](https://weblog.sh/~postmaster), which is the only thing it knows about you.
+It serves posts under your [~username](https://weblog.sh/~postmaster), which is the only thing it knows about you, aside from SSH key or password authentication.
 
 The service aims to reduce the blogging workflow and presentation to its minimum, employing only core blogging features. Basically trying to get as close to "text files in a folder" but not leaving the "published online" domain. An antithesis to rich blogging platforms.
 
