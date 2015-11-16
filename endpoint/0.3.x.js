@@ -36,7 +36,7 @@ module.exports = {
         var response = [""];
         response.push("\n"); // using \n here because we are not joining with LB
         response.push("[" + user.username + "] → registered: "+constants.protocol+'://'+constants.host+"/~"+user.username);
-        response.push("\n\n" + constants.licenseline);
+        response.push("\n\n" + constants.licenseline + "\n\nTHIS CLIENT IS DEPRECATED, USE SSH INSTEAD SEE http://weblog.sh");
         response.push("---");
         response.push(user.token);
 
@@ -95,7 +95,7 @@ module.exports = {
         var response = [""];
         response.push("\n"); // using \n here because we are not joining with LB
         response.push("[" + user.username + "] → login: "+constants.protocol+'://'+constants.host+"/~"+user.username);
-        response.push("\n\n" + constants.licenseline);
+        response.push("\n\n" + constants.licenseline + "\n\nTHIS CLIENT IS DEPRECATED, USE SSH INSTEAD SEE http://weblog.sh");
         response.push("---");
         response.push(user.token);
 
