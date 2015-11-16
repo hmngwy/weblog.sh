@@ -25,23 +25,13 @@ Users are anonymous, no information is explicitly requested other than the prefe
 
 No password recovery system is in place, or ever will be. If an account is lost, or compromised, it is likely to stay that way forever.
 
-The system is designed to have as little personally identifying information as possible (afaik IPs in logs), in the case of a leak data exposed will only slightly be better than what's already publicly available on the platform.
+The system is designed to have as little personally identifying information as possible (afaik IPs in logs), in the case of a leak data exposed will only slightly be meaningful than what's already publicly available on the platform.
 
 Passwords are stored after a one-way encryption.
 
-### The CLI Tool
-
-All interaction with your blog is through this client, from registration, to article publishing, to article deletion, the site's homepage outlines all the commands in the latest version.
-
-When you start or edit an article the client will launch your $EDITOR, if you have not set it please see instructions in doing so for your operating system.
-
 ### The Source Code
 
-Basically each client version will activate a corresponding endpoint library of commands available for that version, the client corresponds to a library by its semver minor version. The command definitions are exclusive to each version but there is interest in keeping it consistent with future versions.
-
-Only the schemas are permanently consistent across versions.
-
-The server does not use REST in the interest of brevity.
+The service runs on a custom SSH server, supporting the SCP protocol to let netrw users directly manipulate posts.
 
 Other than that, it's mostly a basic Express web app.
 
@@ -68,7 +58,7 @@ postmaster at weblog•sh
 GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
-**weblog.sh - hosted blogging service managed through a provided command line interface client**
+**weblog.sh - hosted blogging service managed through SSH and SCP**
 
 Copyright (C) 2015 Conrado Patricio Ambrosio
 
