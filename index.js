@@ -285,6 +285,20 @@ app.get('/about', cache.route(), function (req, res) {
 
 });
 
+app.get('/ls', cache.route(), function (req, res) {
+
+  User.find({}, function(err, users){
+    if (err) { console.log('Error: ', err); }
+
+    res.render('everyone', {
+      layout: 'main',
+      users: users,
+      constants: constants});
+  });
+
+
+});
+
 app.get('*', function(req, res){
   res.status(404);
   res.render('error', {message: 'NOT FOUND', layout: false});
