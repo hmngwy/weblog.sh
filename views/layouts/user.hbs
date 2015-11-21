@@ -103,7 +103,7 @@
   </head>
   <body {{#if isIndex}}class="index"{{/if}}>
     <header>
-      <p class="username"><a href="./" target="_self">{{user.username}}</a></p>
+      <p class="username"><a href="{{#if isPost}}.{{/if}}./" target="_self">{{user.username}}</a></p>
     </header>
     <main>
       {{{body}}}
