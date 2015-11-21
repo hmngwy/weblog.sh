@@ -78,9 +78,11 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
   .exec(function(err, article){
     if (err) { console.log('Error: ', err); }
+    var format = article.filename.substring(article.filename.lastIndexOf('.')+1);
+    format = (format === article.filename) ? 'txt' : format;
 
     if (article) {
-      res.render('post', {user: req.user, article: article, isPost: true, constants: constants});
+      res.render('post', {user: req.user, article: article, isPost: true, format: format, constants: constants});
     } else {
       res.status(404);
       res.render('error', {message: 'NOT FOUND', layout: false, constants: constants});
