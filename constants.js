@@ -11,7 +11,7 @@ module.exports = {
   md5: process.env.MD5 || 'XXXXXXXXXXXXXXXX',
   limitmessage: '(ﾉ｀Д´)ﾉ you\'re going too fast!',
 
-  licenseline: "By using this service you agree to our License, Terms of Service, and Privacy Policy.\n\n\r"+
+  licenseline: "→ By using this service you agree to our License, Terms of Service, and Privacy Policy.\n\n\r"+
     "  GPLV3 License: https://goo.gl/93VKiw\n\r" +
     "  Terms of Service: https://weblog.sh/terms\n\r" +
     "  Privacy Policy: https://weblog.sh/privacy\n\r"
