@@ -86,7 +86,6 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
       res.render('error', {message: 'NOT FOUND', layout: false, constants: constants});
     }
 
-
   });
 
 });
@@ -216,7 +215,6 @@ app.get('/ls', cache.route(), function (req, res) {
       users: users,
       constants: constants});
   });
-
 
 });
 
