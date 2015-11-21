@@ -1,0 +1,25 @@
+<section id="lead">
+  <div class="cell">
+    <header>
+      <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
+      <h1>BLOG FROM THE COMMAND-LINE</h1>
+    </header>
+  </div>
+</section>
+
+
+<section id="intro">
+  <div class="cell">
+    <header>
+      <h2>explore</h2>
+    </header>
+    <ul class="articlelist">
+      {{#each articles}}
+      <li>
+        <a href="/~{{author.username}}/{{slug}}-{{_id}}" target="_blank">{{title}}</a><br>
+        <span class="lighter">by <a href="/~{{author.username}}" target="_blank">~{{author.username}}</a> &mdash; {{shorterDate published_ts}}</span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

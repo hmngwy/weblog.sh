@@ -14,10 +14,10 @@ var hbs = exphbs.create({
   extname: '.hbs',
   helpers: {
     shortDate: function (date) {
-      return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+      return (date) ? date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
     },
     shorterDate: function (date) {
-      return date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' });
+      return (date) ? date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }) +' '+ date.toLocaleDateString('en-GB', { year: 'numeric' }): '';
     },
     getTime: function (date) {
       return date.getTime();
@@ -213,6 +213,24 @@ app.get('/ls', cache.route(), function (req, res) {
     res.render('everyone', {
       layout: 'main',
       users: users,
+      constants: constants});
+  });
+
+});
+
+app.get('/explore', cache.route(), function (req, res) {
+
+  Article
+  .find({status: 'published'})
+  .sort({published_ts: -1})
+  .populate('author')
+  .limit(50)
+  .exec(function(err, articles){
+    if (err) { console.log('Error: ', err); }
+
+    res.render('explore', {
+      layout: 'main',
+      articles: articles,
       constants: constants});
   });
 
