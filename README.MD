@@ -42,9 +42,7 @@ Other than that, it's mostly a basic Express web app.
   - Or look into the detail, and maybe fix reported bugs
 - Report bugs using [Github Issues](https://github.com/hmngwy/weblog.sh/issues)
   - Also welcome: suggestions, opinion, open discussions
-- Support through [♥︎Gratipay](https://gratipay.com/weblog-sh/) (Soon)
-
-I am figuring out the policies needed to allow people in as Repo Contributors, I will disclose that when I figure it out. But for now you should be able to send pull requests for anything and I will acknowledge them.
+- Support the project through [♥︎Gratipay](https://gratipay.com/weblog-sh/)
 
 ### TO-DO List
 
