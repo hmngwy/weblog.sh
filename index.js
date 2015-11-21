@@ -46,25 +46,6 @@ app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 if (process.env.NODE_ENV !== 'development') { app.enable('view cache'); }
 
-app.use('/endpoint', ratelimit);
-
-app.use('/endpoint', function (req, res, next) {
-  if(req.headers['x-token'] !== undefined) {
-    User.findOne({token: req.headers['x-token']}, function(err, user){
-      if (err) { console.log('Error: ', err); }
-
-      if (user) {
-        req.user = user;
-        next();
-      } else {
-        res.status(401).send('BAD^^^Invalid token, please login again.');
-      }
-    });
-  } else {
-    next();
-  }
-});
-
 app.use(['/~:username', '/~:username*'], function (req, res, next) {
 
   User.findOne({username: req.params.username}, function(err, user){
@@ -90,51 +71,6 @@ app.use(function(err, req, res, next) {
   res.status(500);
   res.render('error', {message: 'ERROR', layout: false});
 });
-
-app.post('/endpoint', function (req, res, next) {
-
-  var semver = require('semver');
-  var fs = require('fs');
-
-  var clientVersion = req.headers['user-agent'].replace('/', 'X'); //sanitize ver
-  var clientSemver = clientVersion.match(/.*-(.*)$/)[1];
-
-  var endpoint = null;
-
-  fs.readdir('./endpoint', function(err, items) {
-    for (var i=0; i<items.length; i++) {
-      var endpointSemver = items[i].match(/(.*)\.js$/)[1];
-
-      if (semver.satisfies(clientSemver, endpointSemver)) {
-        console.log(clientSemver, endpointSemver);
-        endpoint = require('./endpoint/'+endpointSemver+'.js');
-        break;
-      }
-    }
-
-    if (endpoint === null) {
-      res.send('BAD^^^Your version is not supported.');
-      next();
-    } else {
-
-      if (endpoint[req.headers['x-action']] === undefined) {
-        res.send('BAD^^^Command not found.');
-        next();
-      }
-
-      endpoint[req.headers['x-action']](req, res, next, {
-        callback: function(req, res, next){
-          next();
-        }
-      });
-
-    }
-
-
-  }); // readdir
-
-});
-
 
 app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
@@ -230,21 +166,6 @@ app.get('/~:username', cache.route(), function (req, res) {
 
     res.render('index', templateData);
 
-  });
-
-});
-
-app.get(constants.downloadpath, function (req, res) {
-
-  var fs = require('fs');
-  fs.readFile('client/'+constants.latest+'.sh', 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    data = data.replace('{{ENDPOINT}}', constants.endpointurl);
-    data = data.replace('{{BRAND}}', constants.brand);
-    res.setHeader('Content-disposition', 'attachment; filename='+constants.latest+'.sh');
-    res.send(data);
   });
 
 });
