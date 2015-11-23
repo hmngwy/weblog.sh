@@ -14,7 +14,7 @@
     <section id="intro">
       <div class="cell">
         <p>This is a blogging platform boiled down to its core. The only features are saving drafts, and publishing them.</p>
-        <p>The post format is plain text<sup>1</sup>, use SCP to transfer posts. First line is the title.</p>
+        <p>The post format is markdown or plain text<sup>1</sup>, use SCP to transfer posts. First line or H1 is the title.</p>
         <p>It serves posts under your <a href="/~postmaster" target="_blank">~username</a>, which is the only thing it knows about you, aside from SSH key or password authentication.</p>
         <p>
           Simple and <a href="https://www.eff.org/issues/anonymity" target="_blank">anonymous</a>.
@@ -49,7 +49,7 @@
       <header><h2>USAGE (use -p 2222 or do setup above)</h2></header>
 
       <p>
-        <span class="comment"># REGISTRATION, you will be asked a password</span><br>
+        <span class="comment"># REGISTRATION (you will be asked a password)</span><br>
         <span class="prompt"></span>ssh walt@weblog.sh
       </p>
 
@@ -62,7 +62,7 @@
 
       <p>
         <span class="comment"># CREATE OR EDIT POST, UPLOAD ON SAVE</span><br>
-        <span class="prompt"></span>vim scp://walt@weblog.sh/file.txt
+        <span class="prompt"></span>vim scp://walt@weblog.sh/file.<span class="red">(txt|md)</span>
       </p>
 
       <p>
