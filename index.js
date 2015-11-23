@@ -78,7 +78,8 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
   .exec(function(err, article){
     if (err) { console.log('Error: ', err); }
-    var format = article.filename.substring(article.filename.lastIndexOf('.')+1);
+    // use txt if blank or extension not found i.e. ext === filename
+    var format = (article.filename) ? article.filename.substring(article.filename.lastIndexOf('.')+1) : 'txt';
     format = (format === article.filename) ? 'txt' : format;
 
     if (article) {
