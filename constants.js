@@ -14,5 +14,8 @@ module.exports = {
   licenseline: "→ By using this service you agree to our License, Terms of Service, and Privacy Policy.\n\n\r"+
     "  GPLV3 License: https://goo.gl/93VKiw\n\r" +
     "  Terms of Service: https://weblog.sh/terms\n\r" +
-    "  Privacy Policy: https://weblog.sh/privacy\n\r"
+    "  Privacy Policy: https://weblog.sh/privacy\n\r",
+
+  fundProgress: process.env.fundProgress || '0%',
+  fundText: process.env.fundText || '$0 of $4.73 / week',
 }
