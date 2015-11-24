@@ -10,7 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "blessed": "^0.1.81",
     "body-parser": "^1.14.1",
     "buffer-equal-constant-time": "^1.0.1",
     "cheerio": "^0.19.0",
