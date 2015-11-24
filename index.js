@@ -79,10 +79,10 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
   .exec(function(err, article){
     if (err) { console.log('Error: ', err); }
     // use txt if blank or extension not found i.e. ext === filename
-    var format = (article.filename) ? article.filename.substring(article.filename.lastIndexOf('.')+1) : 'txt';
-    format = (format === article.filename) ? 'txt' : format;
 
     if (article) {
+      var format = (article.filename) ? article.filename.substring(article.filename.lastIndexOf('.')+1) : 'txt';
+      format = (format === article.filename) ? 'txt' : format;
       res.render('post', {user: req.user, article: article, isPost: true, format: format, constants: constants});
     } else {
       res.status(404);
