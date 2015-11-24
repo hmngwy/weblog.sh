@@ -49,7 +49,7 @@
     </p>
 
     <p>
-      The client connects to the service over SSL, all communication between you and the service is encrypted. Do note that to the service, and those who read blogs on weblog.sh you are anonymous, but to your ISP and everyone in between, they can track your activity back to you. This is beyond our control, so we can only recommend that you use Tor or a proxy.
+      The client connects to the service over SSH, all communication between you and the service is encrypted. Do note that to the service, and those who read blogs on weblog.sh you are anonymous, but to your ISP and everyone in between, they can track your activity back to you. This is beyond our control, so we can only recommend that you use Tor, a proxy, or a combination of both.
     </p>
 
     <p>
@@ -73,7 +73,7 @@
     <h2>Open Source</h2>
 
     <p>
-      The source to the platform and CLI client is available on <a href="https://github.com/hmngwy/weblog.sh">Github</a>, with the exception of server configuration files that hold SSL information. Anyone is invited to contribute and report issues there.
+      The source to the platform and CLI client is available on <a href="https://github.com/hmngwy/weblog.sh">Github</a>, with the exception of server configuration files that hold SSL and SSH information. Anyone is invited to contribute and report issues there.
     </p>
 
     <h2>Reaching Us</h2>
@@ -85,10 +85,9 @@
     <h2>Know This</h2>
 
     <ul>
-      <li>Your login is maintained using a token file in your ~/.weblog/ folder, keep it safe.</li>
-      <li>SSL is provided by startssl, in the free tier.</li>
+      <li>SSL Certificates are provided by <a href="https://www.startssl.com/">startssl</a>, in the free tier.</li>
       <li>IPs are logged because curl sends them and the web server stores them by default.</li>
-      <li>There is no password recovery system, an account lost is lost forever</li>
+      <li>There is no password recovery system, an account lost is lost forever.</li>
       <li>The site does not use cookies or third party tracking, but Google Fonts might be tracking usage.</li>
     </ul>
 
