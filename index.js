@@ -74,15 +74,17 @@ app.use(function(err, req, res, next) {
 
 app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
+
   Article
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
   .exec(function(err, article){
     if (err) { console.log('Error: ', err); }
     // use txt if blank or extension not found i.e. ext === filename
-    var format = (article.filename) ? article.filename.substring(article.filename.lastIndexOf('.')+1) : 'txt';
-    format = (format === article.filename) ? 'txt' : format;
 
     if (article) {
+      var format = (article.filename) ? article.filename.substring(article.filename.lastIndexOf('.')+1) : 'txt';
+      format = (format === article.filename) ? 'txt' : format;
       res.render('post', {user: req.user, article: article, isPost: true, format: format, constants: constants});
     } else {
       res.status(404);
@@ -95,6 +97,8 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
 
 app.get('/~:username/feed', cache.route(), function (req, res) {
+
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
 
   var Feed = require('feed');
   var feed = new Feed({
@@ -137,6 +141,8 @@ app.get('/~:username/feed', cache.route(), function (req, res) {
 });
 
 app.get('/~:username', cache.route(), function (req, res) {
+
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
 
   var query = {
     author: req.user._id,
