@@ -74,6 +74,8 @@ app.use(function(err, req, res, next) {
 
 app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
+
   Article
   .findOne({author: req.user._id, _id: req.params.id, status: 'published'})
   .exec(function(err, article){
@@ -95,6 +97,8 @@ app.get('/~:username/*-:id', cache.route(), function (req, res) {
 
 
 app.get('/~:username/feed', cache.route(), function (req, res) {
+
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
 
   var Feed = require('feed');
   var feed = new Feed({
@@ -137,6 +141,8 @@ app.get('/~:username/feed', cache.route(), function (req, res) {
 });
 
 app.get('/~:username', cache.route(), function (req, res) {
+
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
 
   var query = {
     author: req.user._id,
