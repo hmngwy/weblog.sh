@@ -1,25 +1,13 @@
-<section id="lead">
+<div class="wide">
   <div class="cell">
     <header>
       <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
       <h1>BLOG FROM THE COMMAND-LINE</h1>
+      <hr>
+      <h2><a href="./explore">Explore</a>{{#if before}} < {{before}}{{/if}}</h2>
     </header>
   </div>
-</section>
+</div>
 
-
-<section id="intro">
-  <div class="cell">
-    <header>
-      <h2>explore</h2>
-    </header>
-    <ul class="articlelist">
-      {{#each articles}}
-      <li>
-        <a href="/~{{author.username}}/{{slug}}-{{_id}}" target="_blank">{{title}}</a><br>
-        <span class="lighter">by <a href="/~{{author.username}}" target="_blank">~{{author.username}}</a> &mdash; {{shorterDate published_ts}}</span>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
-</section>
+<div class="wide explore">{{#each articles}}<!--
+--><iframe id="iframe1" src="/~{{author.username}}/{{slug}}-{{_id}}" class="inline index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden;padding-top:0;cursor:pointer');this.contentDocument.addEventListener('click', function(){console.log(window.location=this.location.href)});" ></iframe>{{#if @last}}<nav><a href="./explore?before={{getTime published_ts}}">Older</a></nav>{{/if}}{{/each}}</div>

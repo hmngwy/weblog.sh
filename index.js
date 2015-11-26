@@ -216,6 +216,8 @@ app.get('/about', cache.route(), function (req, res) {
 
 app.get('/ls', cache.route(), function (req, res) {
 
+  res.setHeader("Content-Security-Policy", "script-src 'none'");
+
   User.find({}, function(err, users){
     if (err) { console.log('Error: ', err); }
 
@@ -229,18 +231,29 @@ app.get('/ls', cache.route(), function (req, res) {
 
 app.get('/explore', cache.route(), function (req, res) {
 
+  var query = {
+    status: 'published'
+  }
+
+  if( req.query.before ) {
+    query.published_ts = {'$lt': new Date(parseInt(req.query.before))};
+  }
+
   Article
-  .find({status: 'published'})
+  .find(query)
   .sort({published_ts: -1})
   .populate('author')
-  .limit(50)
+  .limit(12)
   .exec(function(err, articles){
     if (err) { console.log('Error: ', err); }
 
     res.render('explore', {
       layout: 'main',
       articles: articles,
-      constants: constants});
+      constants: constants,
+      before: (req.query.before) ? new Date(parseInt(req.query.before)) : false
+    });
+
   });
 
 });
