@@ -9,5 +9,9 @@
   </div>
 </div>
 
-<div class="wide explore">{{#each articles}}<!--
---><iframe id="iframe1" src="/~{{author.username}}/{{slug}}-{{_id}}" class="inline index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden;padding-top:0;cursor:pointer');this.contentDocument.addEventListener('click', function(){console.log(window.location=this.location.href)});" ></iframe>{{#if @last}}<nav><a href="./explore?before={{getTime published_ts}}">Older</a></nav>{{/if}}{{/each}}</div>
+<div class="wide explore">
+  {{#each articles}}
+  <div class="inline"><iframe id="iframe1" src="/~{{author.username}}/{{slug}}-{{_id}}" class="index" onload="this.contentDocument.body.setAttribute('style', 'font-size:12px;overflow:hidden;padding-top:0;cursor:pointer;width:230px');this.contentDocument.addEventListener('click', function(){console.log(window.location=this.location.href)});" ></iframe></div>
+  {{#if @last}}<nav><a href="./explore?before={{getTime published_ts}}">Older</a></nav>{{/if}}
+  {{/each}}
+</div>
