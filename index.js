@@ -31,7 +31,7 @@ var Article = mongoose.model('Article', schemas.article);
 var app = express();
 
 app.use(function(req, res, next){
-  if (req.hostname !== constants.hostname) {
+  if (process.env.NODE_ENV === 'production' && req.hostname !== constants.hostname) {
     res.header('Content-Type', 'text/plain');
     res.status(404).send('(ﾉ´ヮ´)ﾉ*:･ﾟ✧');
     res.end();
