@@ -9,6 +9,8 @@ var schemas     = require('./lib/schemas');
 var cache       = require('./lib/cache');
 var ratelimit   = require('./lib/ratelimit');
 
+mongoose.connect(constants.mongourl);
+
 var hbs = exphbs.create({
   defaultLayout: 'user',
   extname: '.hbs',
