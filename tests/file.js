@@ -11,10 +11,10 @@ describe('file', function() {
       var baseName = 'helloworld.';
 
       var asText = [header, body].join('\n\n');
-      var asMarkdown = ['#' + header, body].join('\n\n');
+      var asMarkdown = ['# ' + header, body].join('\n\n');
 
       var parsedText = file.parse(baseName + '.txt', asText);
-      var parsedMarkdown = file.parse(baseName + '.txt', asMarkdown);
+      var parsedMarkdown = file.parse(baseName + '.md', asMarkdown);
 
       parsedText.payload.should.equal(parsedMarkdown.payload);
       parsedText.title.should.equal(parsedMarkdown.title);
@@ -53,7 +53,7 @@ describe('file', function() {
       var raw = '# Hello\n\nWorld!';
       var expected = {title: 'Hello', payload: '<p>World!</p>'};
 
-      file.parseTextPayload(raw).should.be.deepEqual(expected);
+      file.parseMarkdownPayload(raw).should.be.deepEqual(expected);
     });
   });
 });
