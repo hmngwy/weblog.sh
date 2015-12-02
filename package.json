@@ -29,7 +29,8 @@
     "sha256": "^0.2.0",
     "shortid": "^2.2.4",
     "ssh2": "^0.4.12",
-    "string_decoder": "^0.10.31"
+    "string_decoder": "^0.10.31",
+    "xss": "^0.2.9"
   },
   "devDependencies": {
     "mocha": "^2.3.4",
