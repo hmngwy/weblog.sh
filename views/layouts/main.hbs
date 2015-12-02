@@ -166,12 +166,22 @@
       .feature iframe + iframe {
         border-left: 0;
       }
+    .ls ul {
+      column-count: 2;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+    }
     @media screen and (min-width:74ch) {
       iframe {
         width: 50%;
       }
       .preview_wrap iframe + iframe {
         border-left: 0;
+      }
+      .ls ul {
+        column-count: 4;
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
       }
     }
     @media screen and (min-width:1122px) {
@@ -181,6 +191,14 @@
       .wide {
         text-align: center;
         margin: 4ch 0;
+      }
+      .wide.ls {
+        text-align: left;
+      }
+      .ls ul {
+        column-count: 6;
+        -webkit-column-count: 6;
+        -moz-column-count: 6;
       }
       .col {
         display: inline-block;

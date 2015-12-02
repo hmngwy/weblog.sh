@@ -1,22 +1,28 @@
-<section id="lead">
+<style media="screen">
+  ul {
+    columns: 5;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+</style>
+
+<div class="wide">
   <div class="cell">
-    <header>
+  <header>
       <p class="name"><a href="./" target="_self">{{constants.brand}}</a></p>
       <h1>BLOG FROM THE COMMAND-LINE</h1>
+      <hr>
+      <h2><a href="./ls">Everyone</a></h2>
     </header>
   </div>
-</section>
+</div>
 
-
-<section id="intro">
-  <div class="cell">
-    <header>
-      <h2>ls .</h2>
-    </header>
-    <ul>
-      {{#each users}}
-      <li><a href="/~{{username}}" target="_blank">~{{username}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
-</section>
+<div class="wide ls">
+  <ul>
+    {{#each users}}
+    <li><a href="/~{{username}}" target="_blank">~{{username}}</a></li>
+    {{/each}}
+  </ul>
+</div>
